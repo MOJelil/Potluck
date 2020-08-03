@@ -47,10 +47,11 @@ public class UserSqlDAO implements UserDAO {
         String ssRole = "ROLE_" + role.toUpperCase();
 
         try {
-        	int count = jdbcTemplate.update(sql, username, password_hash, ssRole);
+        	int count = jdbcTemplate.update(sql, username, firstName, lastName, email, phone, password_hash, ssRole);
         	userCreated = (count == 1);
         } catch (DataAccessException e) {
         	//userCreated remains false
+        	System.out.print(e);
         }
         return userCreated;
     }

@@ -31,7 +31,7 @@ public class UserModelDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(final String login) {
         log.debug("Authenticating user '{}'", login);
-        String lowercaseLogin = login.toLowerCase();
+        String lowercaseLogin = login;
         return createSpringSecurityUser(lowercaseLogin,userDAO.findByUsername(lowercaseLogin));
     }
 

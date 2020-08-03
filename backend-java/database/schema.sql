@@ -12,8 +12,8 @@ CREATE SEQUENCE seq_user_id
 
 CREATE TABLE users (
 	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
-	first_name		varchar(50)	not null,
-	last_name		varchar(50)	not null,
+	firstName		varchar(50)	not null,
+	lastName		varchar(50)	not null,
 	phone			varchar(50)	not null,
 	email			varchar(50)	not null,
 	username 		varchar(50) NOT NULL,
@@ -22,8 +22,9 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
-INSERT INTO users (first_name, last_name, phone, email, username,password_hash,role) VALUES ('first_name', 'last_name', 'phone', 'email','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
-INSERT INTO users (first_name, last_name, phone, email,username,password_hash,role) VALUES ('first_name', 'last_name', 'phone', 'email','admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (firstName, lastName, phone, email, username,password_hash,role) VALUES ('firstName', 'lastName', 'phone', 'email','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (firstName, lastName, phone, email,username,password_hash,role) VALUES ('John', 'Admin', 'phone', 'email','admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users (firstName, lastName, phone, email,username,password_hash,role) VALUES ('Test', 'User', '592-3767', 'rob@hotmail.com','test','password','ROLE_ADMIN');
 
 
 COMMIT TRANSACTION;

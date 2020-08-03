@@ -29,7 +29,7 @@ public class RegisterUserDTO {
         this.username = username;
     }
 
-    public void getFirstName(){
+    public String getFirstName(){
       return firstName;
    }
    
@@ -38,7 +38,7 @@ public class RegisterUserDTO {
    }
 
    
-   public void getlastName(){
+   public String getlastName(){
       return lastName;
    }
    
@@ -47,7 +47,7 @@ public class RegisterUserDTO {
    }
 
    
-   public void getEmail(){
+   public String getEmail(){
       return email;
    }
    
@@ -56,7 +56,7 @@ public class RegisterUserDTO {
    }
 
    
-   public void getPhone(){
+   public String getPhone(){
       return phone;
    }
    

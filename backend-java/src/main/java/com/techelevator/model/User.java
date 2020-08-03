@@ -50,7 +50,7 @@ public class User {
       this.username = username;
    }
 
-   public void getFirstName(){
+   public String getFirstName(){
       return firstName;
    }
    
@@ -59,16 +59,16 @@ public class User {
    }
 
    
-   public void getlastName(){
+   public String getLastName(){
       return lastName;
    }
    
-   public void setlastName(String lastName) {
+   public void setLastName(String lastName) {
       this.lastName = lastName;
    }
 
    
-   public void getEmail(){
+   public String getEmail(){
       return email;
    }
    
@@ -77,7 +77,7 @@ public class User {
    }
 
    
-   public void getPhone(){
+   public String getPhone(){
       return phone;
    }
    
