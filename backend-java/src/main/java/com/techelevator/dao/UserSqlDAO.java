@@ -14,7 +14,7 @@ public class UserSqlDAO implements UserDAO {
 
     private JdbcTemplate jdbcTemplate;
     
-    private static final String ALL_FIELDS = "user_id, username, password_hash, role";
+    private static final String ALL_FIELDS = "user_id, username, firstName, lastName, email, phone, password_hash, role";
     
 
     public UserSqlDAO(JdbcTemplate jdbcTemplate) {
@@ -40,9 +40,9 @@ public class UserSqlDAO implements UserDAO {
     }
 
     @Override
-    public boolean create(String username, String password, String role) {
+    public boolean create(String username, String firstName, String lastName, String email, String phone, String password, String role) {
         boolean userCreated = false;
-        String sql = "INSERT INTO users (username,password_hash,role) VALUES (?,?,?)";
+        String sql = "INSERT INTO users (username, firstName, lastName, email, phone, password_hash, role) VALUES (?,?,?,?,?,?,?)";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = "ROLE_" + role.toUpperCase();
 
@@ -59,6 +59,10 @@ public class UserSqlDAO implements UserDAO {
         User user = new User();
         user.setId(rs.getLong("user_id"));
         user.setUsername(rs.getString("username"));
+        user.setFirstName(rs.getString("firstName"));
+        user.setLastName(rs.getString("lastName"));
+        user.setEmail(rs.getString("email"));
+        user.setPhone(rs.getString("phone"));
         user.setPassword(rs.getString("password_hash"));
         user.setAuthorities(rs.getString("role"));
         user.setActivated(true);

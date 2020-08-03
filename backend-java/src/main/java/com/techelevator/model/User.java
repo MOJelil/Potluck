@@ -10,6 +10,11 @@ public class User {
 
    private Long id;
    private String username;
+   private String firstName;
+   private String lastName;
+   private String email;
+   private String phone;
+
    @JsonIgnore
    private String password;
    @JsonIgnore
@@ -18,10 +23,14 @@ public class User {
    
    public User() { }
 
-   public User(Long id, String username, String password, String authorities) {
+   public User(Long id, String username, String firstName, String lastName, String email, String phone, String password, String authorities) {
       this.id = id;
       this.username = username;
       this.password = password;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+      this.phone = phone;
       this.activated = true;
    }
 
@@ -39,6 +48,41 @@ public class User {
 
    public void setUsername(String username) {
       this.username = username;
+   }
+
+   public void getFirstName(){
+      return firstName;
+   }
+   
+   public void setFirstName(String firstName) {
+      this.firstName = firstName;
+   }
+
+   
+   public void getlastName(){
+      return lastName;
+   }
+   
+   public void setlastName(String lastName) {
+      this.lastName = lastName;
+   }
+
+   
+   public void getEmail(){
+      return email;
+   }
+   
+   public void setEmail(String email) {
+      this.email = email;
+   }
+
+   
+   public void getPhone(){
+      return phone;
+   }
+   
+   public void setPhone(String phone) {
+      this.phone = phone;
    }
 
    public String getPassword() {
@@ -95,6 +139,10 @@ public class User {
       return "User{" +
               "id=" + id +
               ", username='" + username + '\'' +
+              ", firstName='" + firstName + '\'' +
+              ", lastName='" + lastName + '\'' +
+              ", email='" + email + '\'' +
+              ", phone='" + phone + '\'' +
               ", activated=" + activated +
               ", authorities=" + authorities +
               '}';

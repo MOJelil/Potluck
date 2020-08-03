@@ -7,6 +7,12 @@ public interface UserDAO {
     User findByUsername(String username);
 
     boolean usernameExists(String username);
+
     
-    boolean create(String username, String password, String role);
+
+
+
+
+    
+    boolean create(String username, String firstName, String lastName, String email, String phone, String password, String role);
 }
