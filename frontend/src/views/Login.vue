@@ -3,9 +3,13 @@
         <img src="../images/loading.gif" />
  </div>
       <div v-else> -->
+        <div>
+        <header class="title">Startha Mewart Potlucks</header>
+        
 <div class="login-container">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
+      
       <h1 class="h3">Please Sign In</h1>
       <div
         class="alert alert-danger"
@@ -38,14 +42,15 @@
       />
       
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      
       <div>
-        <button type="submit" class="gradient-button gradient-button-1">Continue</button>
+        <button type="submit" class="gradient-button gradient-button-color">Continue</button>
       </div>
     </form>
     </div>
   </div>
  <!-- </div> -->
- 
+ </div>
 </template>
 
 <script>
@@ -90,26 +95,42 @@ export default {
 </script>
 
 <style>
+a:link {
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 10px;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+  background:white;
+  border-radius: 5px;
+  
+  padding: 5px;
+  box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.14);
+}
+.title {
+  font-size: 45px;
+}
 body {
   background: url("../images/charcuterie_board.jpeg") no-repeat center fixed;
   background-size: cover;
-        
+  font-family: "Ubuntu", Gadget, sans-serif;
 }
 .login-container {
-  position: fixed;
-  bottom: 0;
-  right: 0;
   display: flex;
-  margin: auto;
-  background-color: none;;
+  margin-top: 350px;
+  background-color: rgba(245, 245, 245, 0.575);
   justify-content: space-around;
   width: 300px;
   height: 300px;
-  /* border-radius: 1.5em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);  */
-  
- 
-  
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);  
 }
 
 .gradient-button {
@@ -121,7 +142,7 @@ body {
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
-  color: #fff;
+  color: black;
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   border-color: #ffffff;
@@ -137,10 +158,10 @@ body {
   margin: 0 auto;
 }
 
-.gradient-button-1 {
-  background-image: 
-  linear-gradient(to right, #53868B, #67E6EC);
- 
+.gradient-button-color {
+   background-image:  
+   linear-gradient(to right, #d2b48c, #f6e3bd); 
+  /* background-color: whitesmoke; */
 }
 .gradient-button-1:hover {
   background-position: right center;
@@ -152,7 +173,7 @@ body {
   align-content: left;
   color: black;
   text-align: right;
-  
+  padding-bottom: 10px;
   
 }
 </style>
