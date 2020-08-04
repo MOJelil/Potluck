@@ -1,7 +1,8 @@
 <template>
+<div class="login-container">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <h1 class="h3">Please Sign In</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -31,11 +32,13 @@
         v-model="user.password"
         required
       />
+      
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
       <div>
         <button type="submit" class="gradient-button gradient-button-1">Continue</button>
       </div>
     </form>
+    </div>
   </div>
 </template>
 
@@ -78,9 +81,25 @@ export default {
 </script>
 
 <style>
+body {
+  background: url("../images/charcuterie_board.jpeg") no-repeat center fixed;
+  background-size: cover;
+        
+}
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  width: 400px;
+  height: 400px;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14); 
+}
+
 .gradient-button {
-  margin: 0 auto;
-  font-family: "Arial Black", Gadget, sans-serif;
+  margin: 20px auto;
+  font-family: "Ubuntu", Gadget, sans-serif;
   font-size: 20px;
   padding: 15px;
   text-align: center;
@@ -90,6 +109,7 @@ export default {
   color: #fff;
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
+  border-color: #ffffff;
   width: 200px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -103,12 +123,9 @@ export default {
 }
 
 .gradient-button-1 {
-  background-image: linear-gradient(
-    to right,
-    #dd5e89 0%,
-    #f7bb97 51%,
-    #dd5e89 100%
-  );
+  background-image: 
+  linear-gradient(to right, #53868B, #67E6EC);
+ 
 }
 .gradient-button-1:hover {
   background-position: right center;
