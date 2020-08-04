@@ -1,17 +1,12 @@
 BEGIN TRANSACTION;
-
+DROP TABLE IF EXISTS user_diet;
+DROP TABLE IF EXISTS dietary_restrictions;
 DROP TABLE IF EXISTS users;
-DROP SEQUENCE IF EXISTS seq_user_id;
 
-CREATE SEQUENCE seq_user_id
-  INCREMENT BY 1
-  NO MAXVALUE
-  NO MINVALUE
-  CACHE 1;
 
 
 CREATE TABLE users (
-	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
+	user_id 		SERIAL NOT NULL,
 	firstName		varchar(50)	not null,
 	lastName		varchar(50)	not null,
 	phone			varchar(50)	not null,
@@ -24,7 +19,32 @@ CREATE TABLE users (
 
 INSERT INTO users (firstName, lastName, phone, email, username,password_hash,role) VALUES ('firstName', 'lastName', 'phone', 'email','user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (firstName, lastName, phone, email,username,password_hash,role) VALUES ('John', 'Admin', 'phone', 'email','admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
-INSERT INTO users (firstName, lastName, phone, email,username,password_hash,role) VALUES ('Test', 'User', '592-3767', 'rob@hotmail.com','test','password','ROLE_ADMIN');
 
+
+
+CREATE TABLE dietary_restrictions (
+	dietary_id 			SERIAL NOT NULL,
+	restriction_name	varchar(50),
+	CONSTRAINT PK_dietary_id PRIMARY KEY (dietary_id)
+);
+
+INSERT INTO dietary_restrictions(restriction_name) VALUES ('Vegan' ),
+														  ('Vegetarian'),
+														  ('Lactose Intolerant'),
+														  ('Nut Allergy'),
+														  ('Gluten Allergy'),
+														  ('Halal'), 
+														  ('Kosher'),
+														  ('Shellfish');
+														  
+CREATE TABLE user_diet (
+	
+	user_id  	 int NOT NULL,    
+	dietary_id   int Not NULL,
+	CONSTRAINT PK_user_diet_id PRIMARY KEY (user_id, dietary_id),
+	CONSTRAINT fk_user_id foreign key (user_id) references users (user_id),
+	CONSTRAINT fk_dietary_id foreign key (dietary_id) references dietary_restrictions (dietary_id)
+	
+);
 
 COMMIT TRANSACTION;

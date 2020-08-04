@@ -1,150 +1,152 @@
 package com.techelevator.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class User {
 
-   private Long id;
-   private String username;
-   private String firstName;
-   private String lastName;
-   private String email;
-   private String phone;
+	private Long id;
+	private String username;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String phone;
+	private List<String> diet = new ArrayList<>();
 
-   @JsonIgnore
-   private String password;
-   @JsonIgnore
-   private boolean activated;
-   private Set<Authority> authorities = new HashSet<>();
-   
-   public User() { }
+	@JsonIgnore
+	private String password;
+	@JsonIgnore
+	private boolean activated;
+	private Set<Authority> authorities = new HashSet<>();
 
-   public User(Long id, String username, String firstName, String lastName, String email, String phone, String password, String authorities) {
-      this.id = id;
-      this.username = username;
-      this.password = password;
-      this.firstName = firstName;
-      this.lastName = lastName;
-      this.email = email;
-      this.phone = phone;
-      this.activated = true;
-   }
+	public User() {
+	}
 
-   public Long getId() {
-      return id;
-   }
+	public User(Long id, String username, String firstName, String lastName, String email, String phone,
+			String password, String authorities) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.activated = true;
+	}
 
-   public void setId(Long id) {
-      this.id = id;
-   }
+	public Long getId() {
+		return id;
+	}
 
-   public String getUsername() {
-      return username;
-   }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-   public void setUsername(String username) {
-      this.username = username;
-   }
+	public String getUsername() {
+		return username;
+	}
 
-   public String getFirstName(){
-      return firstName;
-   }
-   
-   public void setFirstName(String firstName) {
-      this.firstName = firstName;
-   }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-   
-   public String getLastName(){
-      return lastName;
-   }
-   
-   public void setLastName(String lastName) {
-      this.lastName = lastName;
-   }
+	public String getFirstName() {
+		return firstName;
+	}
 
-   
-   public String getEmail(){
-      return email;
-   }
-   
-   public void setEmail(String email) {
-      this.email = email;
-   }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-   
-   public String getPhone(){
-      return phone;
-   }
-   
-   public void setPhone(String phone) {
-      this.phone = phone;
-   }
+	public String getLastName() {
+		return lastName;
+	}
 
-   public String getPassword() {
-      return password;
-   }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-   public void setPassword(String password) {
-      this.password = password;
-   }
+	public String getEmail() {
+		return email;
+	}
 
-   public boolean isActivated() {
-      return activated;
-   }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-   public void setActivated(boolean activated) {
-      this.activated = activated;
-   }
+	public String getPhone() {
+		return phone;
+	}
 
-   public Set<Authority> getAuthorities() {
-      return authorities;
-   }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-   public void setAuthorities(Set<Authority> authorities) {
-      this.authorities = authorities;
-   }
+	public String getPassword() {
+		return password;
+	}
 
-   public void setAuthorities(String authorities) {
-      String[] roles = authorities.split(",");
-      for(String role : roles) {
-         String authority = role.contains("ROLE_") ? role : "ROLE_" + role;
-         this.authorities.add(new Authority(authority));
-      }
-   }
- 
-   @Override
-   public boolean equals(Object o) {
-      if (this == o) return true;
-      if (o == null || getClass() != o.getClass()) return false;
-      User user = (User) o;
-      return id == user.id &&
-              activated == user.activated &&
-              Objects.equals(username, user.username) &&
-              Objects.equals(password, user.password) &&
-              Objects.equals(authorities, user.authorities);
-   }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-   @Override
-   public int hashCode() {
-      return Objects.hash(id, username, password, activated, authorities);
-   }
+	public boolean isActivated() {
+		return activated;
+	}
 
-   @Override
-   public String toString() {
-      return "User{" +
-              "id=" + id +
-              ", username='" + username + '\'' +
-              ", firstName='" + firstName + '\'' +
-              ", lastName='" + lastName + '\'' +
-              ", email='" + email + '\'' +
-              ", phone='" + phone + '\'' +
-              ", activated=" + activated +
-              ", authorities=" + authorities +
-              '}';
-   }
+	public void setActivated(boolean activated) {
+		this.activated = activated;
+	}
+
+	public Set<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
+	public void setAuthorities(String authorities) {
+		String[] roles = authorities.split(",");
+		for (String role : roles) {
+			String authority = role.contains("ROLE_") ? role : "ROLE_" + role;
+			this.authorities.add(new Authority(authority));
+		}
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		User user = (User) o;
+		return id == user.id && activated == user.activated && Objects.equals(username, user.username)
+				&& Objects.equals(password, user.password) && Objects.equals(authorities, user.authorities);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, username, password, activated, authorities);
+	}
+
+	@Override
+	public String toString() {
+		return "User{" + "id=" + id + ", username='" + username + '\'' + ", firstName='" + firstName + '\''
+				+ ", lastName='" + lastName + '\'' + ", email='" + email + '\'' + ", phone='" + phone + '\''
+				+ ", activated=" + activated + ", authorities=" + authorities + '}';
+	}
+
+	public List<String> getDiet() {
+		return diet;
+	}
+
+	public void setDiet(List<String> diet) {
+		this.diet = diet;
+	}
 }

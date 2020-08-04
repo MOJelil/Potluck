@@ -1,5 +1,4 @@
 <template>
-<div class="register-container">
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
@@ -88,16 +87,15 @@
       <div>
         <h2>Dietary Restrictions</h2>
         <div>
-          <div v-for="diet in allDietaryRestrictions" :key="diet.name">
-            <label>{{ diet.name }}</label>
-            <input type="checkbox" v-model="user.dietaryRestriction" :value="diet" />
+          <div v-for="dietRestriction in allDietaryRestrictions" :key="dietRestriction.name">
+            <label>{{ dietRestriction.name }}</label>
+            <input type="checkbox" v-model="user.diet" :value="dietRestriction" />
           </div>
         </div>
       </div>
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Create Account</button>
     </form>
-  </div>
   </div>
 </template>
 
@@ -117,7 +115,7 @@ export default {
         password: "",
         confirmPassword: "",
         role: "user",
-        dietaryRestriction: [],
+        diet: [],
       },
       allDietaryRestrictions: [
           {
@@ -140,9 +138,6 @@ export default {
           },
           {
             name: 'Kosher',
-          },
-          {
-            name: 'Shellfish',
           }
       ],
       registrationErrors: false,
@@ -182,27 +177,4 @@ export default {
 };
 </script>
 
-<style>
-
-.register-container {
-  position: fixed;
-  align-content: center;
-  right: 0;
-  display: flex;
-  margin: auto;
-  background-color: none;;
-  justify-content: flex-end;
-  width: 300px;
-  height: 300px;
-}
-
-.form-register {
-  display:flex;
-  flex-direction: column;
-  align-content: left;
-  color: black;
-  text-align: right;
-  
-  
-}
-</style>
+<style></style>
