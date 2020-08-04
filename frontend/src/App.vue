@@ -9,8 +9,8 @@
   
 </template>
 <style scoped>
-.links {
+/* .links {
   display: flex;
   justify-content: flex-end;
-}
+} */
 </style>

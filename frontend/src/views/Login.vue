@@ -4,8 +4,19 @@
  </div>
       <div v-else> -->
         <div>
-        <header class="title">Startha Mewart Potlucks</header>
-        
+          <div class="title">
+        <header>Startha Mewart Potlucks</header>
+        </div>
+        <div class="description">
+          <p>
+            Welcome to your personal potluck planner! We make it easy for potluck hosts
+            to plan out and invite friends to the perfect group meal. Invitations are 
+            sent out by email using our site, and attendees can upload the dishes
+            they plan on providing to the Potluck Profile. Sign in below or create 
+            an account to get started! 
+            </p>
+          </div>
+        <div class="login-box">
 <div class="login-container">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
@@ -48,6 +59,7 @@
       </div>
     </form>
     </div>
+  </div>
   </div>
  <!-- </div> -->
  </div>
@@ -110,12 +122,24 @@ a:hover {
   text-decoration: none;
   background:white;
   border-radius: 5px;
-  
   padding: 5px;
   box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.14);
 }
 .title {
+  display: flex;
+  justify-content: flex-end;
   font-size: 45px;
+  margin-right: 25px;
+}
+.description {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 74%;
+  font-size: 16px;
+  margin-right: 25px;
+  width: 300px;
+  word-wrap: break-word;
+  text-align: right;
 }
 body {
   background: url("../images/charcuterie_board.jpeg") no-repeat center fixed;
@@ -131,6 +155,12 @@ body {
   height: 300px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);  
+}
+.login-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -300px; 
+  margin-right: 25px;
 }
 
 .gradient-button {
@@ -170,7 +200,7 @@ body {
 .form-signin {
   display:flex;
   flex-direction: column;
-  align-content: left;
+  
   color: black;
   text-align: right;
   padding-bottom: 10px;
