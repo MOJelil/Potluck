@@ -191,7 +191,7 @@ body {
 .gradient-button-color {
    background-image:  
    linear-gradient(to right, #d2b48c, #f6e3bd); 
-  /* background-color: whitesmoke; */
+  
 }
 .gradient-button-1:hover {
   background-position: right center;
