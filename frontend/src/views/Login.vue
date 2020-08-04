@@ -1,4 +1,8 @@
 <template>
+ <!-- <div class="loading" v-if="isLoading">
+        <img src="../images/loading.gif" />
+ </div>
+      <div v-else> -->
 <div class="login-container">
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
@@ -40,6 +44,8 @@
     </form>
     </div>
   </div>
+ <!-- </div> -->
+ 
 </template>
 
 <script>
@@ -50,6 +56,7 @@ export default {
   components: {},
   data() {
     return {
+      isLoading: true,
       user: {
         username: "",
         password: "",
@@ -58,6 +65,7 @@ export default {
     };
   },
   methods: {
+    
     login() {
       authService
         .login(this.user)
@@ -66,6 +74,7 @@ export default {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
+         
           }
         })
         .catch((error) => {
@@ -87,14 +96,20 @@ body {
         
 }
 .login-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  width: 400px;
-  height: 400px;
-  border-radius: 1.5em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14); 
+  margin: auto;
+  background-color: none;;
+  justify-content: space-around;
+  width: 300px;
+  height: 300px;
+  /* border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);  */
+  
+ 
+  
 }
 
 .gradient-button {
@@ -129,5 +144,15 @@ body {
 }
 .gradient-button-1:hover {
   background-position: right center;
+}
+
+.form-signin {
+  display:flex;
+  flex-direction: column;
+  align-content: left;
+  color: black;
+  text-align: right;
+  
+  
 }
 </style>
