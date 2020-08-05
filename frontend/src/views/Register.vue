@@ -82,8 +82,8 @@
 
           <p>Dietary Restrictions</p>
 
-          <div v-for="dietRestriction in allDietaryRestrictions" :key="dietRestriction.name">
-            <label>{{ dietRestriction.name }}</label>
+          <div v-for="dietRestriction in allDietaryRestrictions" :key="dietRestriction">
+            <label>{{ dietRestriction }}</label>
             <input type="checkbox" v-model="user.diet" :value="dietRestriction" />
           </div>
           <router-link :to="{ name: 'login' }">Have an account?</router-link>
@@ -114,32 +114,7 @@ export default {
         role: "user",
         diet: [],
       },
-      allDietaryRestrictions: [
-        {
-          name: "Vegan",
-        },
-        {
-          name: "Vegetarian",
-        },
-        {
-          name: "Lactose Intolerant",
-        },
-        {
-          name: "Nut Allergy",
-        },
-        {
-          name: "Gluten Allergy",
-        },
-        {
-          name: "Halal",
-        },
-        {
-          name: "Kosher",
-        },
-        {
-          name: "Shellfish",
-        },
-      ],
+      allDietaryRestrictions: ["Vegan", "Vegetarian", "Lactose Intolerant", "Nut Allergy", "Gluten Allergy", "Halal", "Kosher", "Shellfish Allergy"],
       registrationErrors: false,
       registrationErrorMsg: "There were problems registering this user.",
     };
