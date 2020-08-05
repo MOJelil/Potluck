@@ -1,77 +1,108 @@
 <template>
   <div>
     <div class="page-name">
-    <header>Create Potluck</header>
+      <header>Create Potluck</header>
     </div>
-    
+
     <div class="potluck-box">
-    <div class="potluck-container">
-      <div class="host-name">
-      <h1>{{ $store.state.user.firstName }}'s Potluck</h1>
-    </div>
-    <div>Potluck Name</div>
-    <input v-model="message" placeholder="Potluck Name" />
-    <div>Location</div>
-    <input v-model="message" placeholder="Location" />
-    <div>Date</div>
-    <input v-model="message" placeholder="Date" />
-    <div>Time</div>
-    <input v-model="message" placeholder="Time" />
-    <div>Description</div>
-    <textarea type="text" v-model="comment" placeholder="Description"></textarea>
-    <datetime v-model="date"></datetime>
-    <div>Number of Guests</div>
-    <input v-model="message" placeholder="0" />
-    <div>Appetizers</div>
-    <input v-model="message" placeholder="0" />
-    <div>Entrees</div>
-    <input v-model="message" placeholder="0" />
-    <div>Side Dishes</div>
-    <input v-model="message" placeholder="0" />
-    <div>Desserts</div>
-    <input v-model="message" placeholder="0" />
-    <div>Non-Alcoholic Beverages</div>
-    <input v-model="message" placeholder="0" />
-    <div>Alcoholic Beverages</div>
-    <input v-model="message" placeholder="0" />
-    <div>
+      <div class="potluck-container">
+        <form class="form-create" @submit.prevent="register">
+          <div class="host-name">
+            <h1>{{ $store.state.user.firstName }}'s Potluck</h1>
+          </div>
+          <div>Potluck Name</div>
+          <input v-model="potluck.name" placeholder="Potluck Name" />
+
+          <!--<div v-model="{{ $store.state.user.username }}"></div>-->
+          
+          <div>Location</div>
+          <input v-model="potluck.location" placeholder="Location" />
+
+          <div>Date</div>
+          <input v-model="potluck.date" placeholder="Date" />
+
+          <div>Time</div>
+          <input v-model="potluck.time" placeholder="Time" />
+
+          <div>Description</div>
+          <textarea type="text" v-model="potluck.description" placeholder="Description"></textarea>
+
+          <div>Number of Guests</div>
+          <input v-model="potluck.guests" placeholder="0" />
+
+          <div>Appetizers</div>
+          <input v-model="potluck.appetizers" placeholder="0" />
+
+          <div>Entrees</div>
+          <input v-model="potluck.entrees" placeholder="0" />
+
+          <div>Side Dishes</div>
+          <input v-model="potluck.side_dishes" placeholder="0" />
+
+          <div>Desserts</div>
+          <input v-model="potluck.desserts" placeholder="0" />
+
+          <div>Non-Alcoholic Beverages</div>
+          <input v-model="potluck.non_alcohol" placeholder="0" />
+
+          <div>Alcoholic Beverages</div>
+          <input v-model="potluck.alcohol" placeholder="0" />
+
+          <div></div>
+          <div class="button-position">
+            <button type="submit" class="gradient-button gradient-button-color">Create</button>
+          </div>
+        </form>
       </div>
-      <div class="button-position">
-      <button type="submit" class="gradient-button gradient-button-color">Create</button>
-      </div>
-    </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  components: {},
+  data() {
+    return {
+      potluck: {
+        username: "",
+        name: "",
+        location: "",
+        date: "",
+        time: "",
+        description: "",
+        guests: "",
+        appetizers: "",
+        entrees: "",
+        side_dishes: "",
+        desserts: "",
+        non_alcohol: "",
+        alcohol: "",
+      },
+    };
+  },
 };
 </script>
 
+
+
 <style>
-
-
 .page-name {
   display: flex;
   justify-content: flex-end;
-  
+
   font-size: 45px;
   margin-right: 25px;
 }
 .host-name {
   display: flex;
   justify-content: flex-end;
-  margin-left: auto; 
+  margin-left: auto;
   margin-top: 5px;
   font-size: 15px;
   margin-right: 25px;
 }
 .potluck-container {
   display: flex;
-  flex-direction: column;
-  align-content: space-between;
+  justify-content: space-around;
   background-color: rgba(245, 245, 245, 0.575);
   padding-right: 40px;
   padding-left: 40px;
@@ -79,8 +110,10 @@ export default {
   width: 250px;
   height: 740px;
   border-radius: 1.5em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);  
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  text-align: right;
 }
+
 .potluck-box {
   display: flex;
   justify-content: flex-end;
@@ -101,5 +134,8 @@ textarea {
   padding: 5px;
 }
 
+::-webkit-input-placeholder {
+  text-align: right;
+}
 
 </style>
