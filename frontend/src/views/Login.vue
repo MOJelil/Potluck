@@ -125,6 +125,7 @@ a:hover {
   padding: 5px;
   box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.14);
 }
+
 .title {
   display: flex;
   justify-content: flex-end;
@@ -134,7 +135,7 @@ a:hover {
 .description {
   display: flex;
   justify-content: flex-end;
-  margin-left: 74%;
+  margin-left: auto; 
   font-size: 16px;
   margin-right: 25px;
   width: 300px;

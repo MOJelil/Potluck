@@ -182,15 +182,17 @@ body {
   background-color: rgba(245, 245, 245, 0.575);
   justify-content: space-around;
   width: 300px;
-  height: 600px;
+  height: 700px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  padding-bottom: 10px;
 }
 .register-box {
   display: flex;
   justify-content: flex-end;
   margin-top: -300px;
-  margin-right: 50px;
+  margin-right: 40px;
+  margin-bottom: 50px;
 }
 
 .gradient-button {
