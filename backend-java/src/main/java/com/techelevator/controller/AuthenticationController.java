@@ -9,7 +9,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -26,73 +31,75 @@ import com.techelevator.security.jwt.TokenProvider;
 @CrossOrigin
 public class AuthenticationController {
 
-    private final TokenProvider tokenProvider;
-    private final AuthenticationManagerBuilder authenticationManagerBuilder;
-    private UserDAO userDAO;
-    private PotluckDAO potluckDAO;
+	private final TokenProvider tokenProvider;
+	private final AuthenticationManagerBuilder authenticationManagerBuilder;
+	private UserDAO userDAO;
+	private PotluckDAO potluckDAO;
 
-    public AuthenticationController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, UserDAO userDAO) {
-        this.tokenProvider = tokenProvider;
-        this.authenticationManagerBuilder = authenticationManagerBuilder;
-        this.userDAO = userDAO;
-    }
+	public AuthenticationController(TokenProvider tokenProvider,
+			AuthenticationManagerBuilder authenticationManagerBuilder, UserDAO userDAO, PotluckDAO potluckDAO) {
+		this.tokenProvider = tokenProvider;
+		this.authenticationManagerBuilder = authenticationManagerBuilder;
+		this.userDAO = userDAO;
+		this.potluckDAO = potluckDAO;
+	}
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginDTO loginDto) {
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginDTO loginDto) {
 
-        UsernamePasswordAuthenticationToken authenticationToken =
-                new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword());
+		UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+				loginDto.getUsername(), loginDto.getPassword());
 
-        Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = tokenProvider.createToken(authentication, false);
-        
-        User user = userDAO.findByUsername(loginDto.getUsername());
+		Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+		String jwt = tokenProvider.createToken(authentication, false);
 
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
-        return new ResponseEntity<>(new LoginResponse(jwt, user), httpHeaders, HttpStatus.OK);
-    }
+		User user = userDAO.findByUsername(loginDto.getUsername());
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public void register(@Valid @RequestBody RegisterUserDTO newUser) {
-        if (userDAO.usernameExists(newUser.getUsername())) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User Already Exists.");
-        } else {
-            userDAO.create(newUser);
-        }
-    }
-    
-    @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "/createpotluck", method = RequestMethod.POST)
-    public void register(@Valid @RequestBody CreatePotluckDTO newPotluck) {
-            potluckDAO.create(newPotluck);
-    }
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
+		return new ResponseEntity<>(new LoginResponse(jwt, user), httpHeaders, HttpStatus.OK);
+	}
 
-    /**
-     * Object to return as body in JWT Authentication.
-     */
-    static class LoginResponse {
+	@ResponseStatus(HttpStatus.CREATED)
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public void register(@Valid @RequestBody RegisterUserDTO newUser) {
+		if (userDAO.usernameExists(newUser.getUsername())) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User Already Exists.");
+		} else {
+			userDAO.create(newUser);
+		}
+	}
 
-        private String token;
-        private User user;
+	@ResponseStatus(HttpStatus.CREATED)
+	@RequestMapping(value = "/createpotluck", method = RequestMethod.POST)
+	public void register(@Valid @RequestBody CreatePotluckDTO newPotluck) {
+		potluckDAO.create(newPotluck);
+	}
 
-        LoginResponse(String token, User user) {
-            this.token = token;
-            this.user = user;
-        }
+	/**
+	 * Object to return as body in JWT Authentication.
+	 */
+	static class LoginResponse {
 
-        @JsonProperty("token")
-        String getToken() {
-            return token;
-        }
+		private String token;
+		private User user;
 
-        void setToken(String token) {
-            this.token = token;
-        }
+		LoginResponse(String token, User user) {
+			this.token = token;
+			this.user = user;
+		}
 
-        @JsonProperty("user")
+		@JsonProperty("token")
+		String getToken() {
+			return token;
+		}
+
+		void setToken(String token) {
+			this.token = token;
+		}
+
+		@JsonProperty("user")
 		public User getUser() {
 			return user;
 		}
@@ -100,6 +107,5 @@ public class AuthenticationController {
 		public void setUser(User user) {
 			this.user = user;
 		}
-    }
+	}
 }
-
