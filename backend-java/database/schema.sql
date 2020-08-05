@@ -2,6 +2,7 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS user_diet;
 DROP TABLE IF EXISTS dietary_restrictions;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS potluck;
 
 
 
@@ -35,7 +36,7 @@ INSERT INTO dietary_restrictions(restriction_name) VALUES ('Vegan' ),
 														  ('Gluten Allergy'),
 														  ('Halal'), 
 														  ('Kosher'),
-														  ('Shellfish');
+														  ('Shellfish Allergy');
 														  
 CREATE TABLE user_diet (
 	
@@ -45,6 +46,20 @@ CREATE TABLE user_diet (
 	CONSTRAINT fk_user_id foreign key (user_id) references users (user_id),
 	CONSTRAINT fk_dietary_id foreign key (dietary_id) references dietary_restrictions (dietary_id)
 	
+);
+
+CREATE TABLE potluck (
+	potluck_id 		SERIAL NOT NULL,
+	location		varchar(50)		not null,
+	user_id 		int				NOT NULL,
+	description		varchar(250)	NOT NULL,
+	guests			int ,
+	appetizer		int ,
+	entree			int ,
+	side_dishes		int ,
+	alcohol			int ,
+	non_alcohol     int ,
+	CONSTRAINT PK_potluck PRIMARY KEY (potluck_id)
 );
 
 COMMIT TRANSACTION;
