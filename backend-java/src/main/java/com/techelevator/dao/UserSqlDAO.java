@@ -74,7 +74,6 @@ public class UserSqlDAO implements UserDAO {
 		user.setPhone(rs.getString("phone"));
 		user.setPassword(rs.getString("password_hash"));
 		user.setAuthorities(rs.getString("role"));
-		// user.setDiet(rs.("diet"));
 		user.setActivated(true);
 		return user;
 	}

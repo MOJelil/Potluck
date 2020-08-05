@@ -53,13 +53,19 @@ CREATE TABLE potluck (
 	location		varchar(50)		not null,
 	user_id 		int				NOT NULL,
 	description		varchar(250)	NOT NULL,
-	guests			int ,
-	appetizer		int ,
-	entree			int ,
-	side_dishes		int ,
-	alcohol			int ,
-	non_alcohol     int ,
+	guests			int,
+	appetizers		int,
+	entrees			int,
+	side_dishes		int,
+	desserts        int,
+	alcohol			int,
+	non_alcohol     int,
 	CONSTRAINT PK_potluck PRIMARY KEY (potluck_id)
 );
 
 COMMIT TRANSACTION;
+
+
+
+
+
