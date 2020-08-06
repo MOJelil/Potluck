@@ -14,11 +14,12 @@
           <input v-model="potluck.name" placeholder="Potluck Name" />
 
           <!--<div v-model="{{ $store.state.user.username }}"></div>-->
-          
+
           <div>Location</div>
           <input v-model="potluck.location" placeholder="Location" />
 
           <div>Date</div>
+          <vuejs-datepicker></vuejs-datepicker>
           <input v-model="potluck.date" placeholder="Date" />
 
           <div>Time</div>
@@ -50,7 +51,11 @@
 
           <div></div>
           <div class="button-position">
-            <button type="submit" class="gradient-button gradient-button-color">Create</button>
+            <button
+              type="submit"
+              v-on:click="createPotluck()"
+              class="gradient-button gradient-button-color"
+            >Create</button>
           </div>
         </form>
       </div>
@@ -59,7 +64,13 @@
 </template>
 
 <script>
+import authService from "../services/AuthService";
+//import Datepicker from 'vuejs-datepicker';
 export default {
+  name: "createPotluck",
+  components: {
+    //Datepicker
+  },
   data() {
     return {
       potluck: {
@@ -76,10 +87,28 @@ export default {
         desserts: "",
         non_alcohol: "",
         alcohol: "",
-      },
-    };
+      }
+    }
   },
-};
+  methods: {
+    createPotluck(){
+    authService
+        .createPotluck(this.potluck)
+        .then((response) => {
+          if (response.status == 201) {
+            //this.$store.commit("SET_AUTH_TOKEN", response.data.token);
+            this.$store.commit("SET_USER", response.data.user);
+            this.$router.push("/");
+          
+          }else {
+            console.log("failed to store data");
+          }
+        
+         })
+    }
+  }
+    
+  }   
 </script>
 
 
@@ -137,5 +166,5 @@ textarea {
 ::-webkit-input-placeholder {
   text-align: right;
 }
-
+   
 </style>

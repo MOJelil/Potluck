@@ -8,6 +8,9 @@ export default {
 
   register(user) {
     return axios.post('/register', user)
-  }
+  },
+  createPotluck(potluck) {
+    return axios.post('/createpotluck', potluck)
 
+  }
 }
