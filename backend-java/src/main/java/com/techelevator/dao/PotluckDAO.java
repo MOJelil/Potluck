@@ -4,6 +4,6 @@ import com.techelevator.model.CreatePotluckDTO;
 
 public interface PotluckDAO {
 	
-	boolean create(CreatePotluckDTO newPotluck);
+	boolean create(CreatePotluckDTO newPotluck, Long user_id);
 	
 }

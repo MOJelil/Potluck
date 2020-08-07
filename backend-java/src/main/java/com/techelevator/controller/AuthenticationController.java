@@ -20,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.techelevator.dao.PotluckDAO;
 import com.techelevator.dao.UserDAO;
-import com.techelevator.model.CreatePotluckDTO;
+
 import com.techelevator.model.LoginDTO;
 import com.techelevator.model.RegisterUserDTO;
 import com.techelevator.model.User;
@@ -34,14 +34,13 @@ public class AuthenticationController {
 	private final TokenProvider tokenProvider;
 	private final AuthenticationManagerBuilder authenticationManagerBuilder;
 	private UserDAO userDAO;
-	private PotluckDAO potluckDAO;
+
 
 	public AuthenticationController(TokenProvider tokenProvider,
 			AuthenticationManagerBuilder authenticationManagerBuilder, UserDAO userDAO, PotluckDAO potluckDAO) {
 		this.tokenProvider = tokenProvider;
 		this.authenticationManagerBuilder = authenticationManagerBuilder;
 		this.userDAO = userDAO;
-		this.potluckDAO = potluckDAO;
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -71,11 +70,7 @@ public class AuthenticationController {
 		}
 	}
 
-	@ResponseStatus(HttpStatus.CREATED)
-	@RequestMapping(value = "/createpotluck", method = RequestMethod.POST)
-	public void register(@Valid @RequestBody CreatePotluckDTO newPotluck) {
-		potluckDAO.create(newPotluck);
-	}
+	
 
 	/**
 	 * Object to return as body in JWT Authentication.

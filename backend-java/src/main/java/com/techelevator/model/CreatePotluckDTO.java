@@ -3,6 +3,7 @@ package com.techelevator.model;
 public class CreatePotluckDTO {
 	
 	private String location;
+	private String name;
 	private int user_id;
 	private String description;
 	private int guests;
@@ -19,6 +20,14 @@ public class CreatePotluckDTO {
 
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public int getUser_id() {
@@ -92,5 +101,7 @@ public class CreatePotluckDTO {
 	public void setNon_alcohol(int non_alcohol) {
 		this.non_alcohol = non_alcohol;
 	}
+
+
 
 }

@@ -50,7 +50,8 @@ CREATE TABLE user_diet (
 
 CREATE TABLE potluck (
 	potluck_id 		SERIAL NOT NULL,
-	location		varchar(50)		not null,
+	name			varchar(50)		NOT NULL,
+	location		varchar(50)		NOT NULL,
 	user_id 		int				NOT NULL,
 	description		varchar(250)	NOT NULL,
 	guests			int,
@@ -64,7 +65,6 @@ CREATE TABLE potluck (
 );
 
 COMMIT TRANSACTION;
-
 
 
 

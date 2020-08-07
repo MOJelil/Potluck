@@ -3,6 +3,7 @@ package com.techelevator.model;
 public class Potluck {
 
 	private Long potluck_id;
+	private String name;
 	private String location;
 	private int user_id;
 	private String description;
@@ -18,10 +19,11 @@ public class Potluck {
 
 	}
 
-	public Potluck(Long potluck_id, String location, int user_id, String description, int guests, int appetizers,
+	public Potluck(Long potluck_id, String name, String location, int user_id, String description, int guests, int appetizers,
 			int entrees, int side_dishes, int desserts, int alcohol, int non_alcohol) {
 		// super();
 		this.potluck_id = potluck_id;
+		this.name = name;
 		this.location = location;
 		this.user_id = user_id;
 		this.description = description;
@@ -40,6 +42,14 @@ public class Potluck {
 
 	public void setPotluck_id(Long potluck_id) {
 		this.potluck_id = potluck_id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getLocation() {
@@ -121,5 +131,7 @@ public class Potluck {
 	public void setNon_alcohol(int non_alcohol) {
 		this.non_alcohol = non_alcohol;
 	}
+
+
 
 }

@@ -13,19 +13,19 @@ public class PotluckSqlDAO implements PotluckDAO {
 	
 	private JdbcTemplate jdbcTemplate;
 	
-	private static final String ALL_FIELDS = "potluck_id, location, user_id, description, guests, appetizer, entree, side_dishes, alcohol, non_alcohol";
+	private static final String ALL_FIELDS = "potluck_id, location, name, user_id, description, guests, appetizer, entree, side_dishes, alcohol, non_alcohol";
 	
 	public PotluckSqlDAO(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
 	@Override
-	public boolean create(CreatePotluckDTO newPotluck) {
+	public boolean create(CreatePotluckDTO newPotluck, Long user_id) {
 		boolean potluckCreated = false;
-		String sql = "INSERT INTO potluck (location, user_id, description, guests, appetizers, entrees, side_dishes, desserts, alcohol, non_alcohol) VALUES (?,?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO potluck (location, name, user_id, description, guests, appetizers, entrees, side_dishes, desserts, alcohol, non_alcohol) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 		
 		try {
-			int count = jdbcTemplate.update(sql, newPotluck.getLocation(), newPotluck.getUser_id(), newPotluck.getDescription(), newPotluck.getGuests(), newPotluck.getAppetizers(), newPotluck.getEntrees(), newPotluck.getSide_dishes(), newPotluck.getDesserts(), newPotluck.getAlcohol(), newPotluck.getNon_alcohol());
+			int count = jdbcTemplate.update(sql, newPotluck.getLocation(), newPotluck.getName(), newPotluck.getUser_id(), newPotluck.getDescription(), newPotluck.getGuests(), newPotluck.getAppetizers(), newPotluck.getEntrees(), newPotluck.getSide_dishes(), newPotluck.getDesserts(), newPotluck.getAlcohol(), newPotluck.getNon_alcohol());
 			potluckCreated = (count == 1);
 		} catch (DataAccessException e) {
 			System.out.print(e);
@@ -36,6 +36,7 @@ public class PotluckSqlDAO implements PotluckDAO {
 	private Potluck mapRowToPotluck(SqlRowSet rs) {
 		Potluck potluck = new Potluck();
 		potluck.setPotluck_id(rs.getLong("potluck_id"));
+		potluck.setName(rs.getString("name"));
 		potluck.setLocation(rs.getString("location"));
 		potluck.setUser_id(rs.getInt("user_id"));
 		potluck.setDescription(rs.getString("description"));
