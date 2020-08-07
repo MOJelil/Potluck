@@ -230,7 +230,6 @@ body {
 .form-register {
   display: flex;
   flex-direction: column;
-
   color: black;
   text-align: right;
   padding-bottom: 10px;

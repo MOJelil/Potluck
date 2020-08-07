@@ -107,24 +107,7 @@ export default {
 </script>
 
 <style>
-a:link {
-  color: black;
-  text-decoration: none;
-  text-align: center;
-  margin-top: 10px;
-}
-a:visited {
-  color: black;
-  text-decoration: none;
-}
-a:hover {
-  color: black;
-  text-decoration: none;
-  background:white;
-  border-radius: 5px;
-  padding: 5px;
-  box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.14);
-}
+
 
 .title {
   display: flex;
@@ -201,7 +184,6 @@ body {
 .form-signin {
   display:flex;
   flex-direction: column;
-  
   color: black;
   text-align: right;
   padding-bottom: 10px;
