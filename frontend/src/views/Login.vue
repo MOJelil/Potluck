@@ -129,6 +129,7 @@ body {
   background: url("../images/charcuterie_board.jpeg") no-repeat center fixed;
   background-size: cover;
   font-family: "Ubuntu", Gadget, sans-serif;
+  margin: 0;
 }
 .login-container {
   display: flex;

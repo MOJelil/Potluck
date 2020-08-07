@@ -9,7 +9,7 @@
   
 </template>
 
-<style scoped>
+<style>
 /* .links {
   display: flex;
   justify-content: flex-end;

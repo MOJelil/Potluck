@@ -12,7 +12,7 @@
       <router-link to="/">My Potlucks</router-link>
     </li>
     <li>
-      <a href="">My Profile</a>
+      <router-link to="/createpotluck">Create Potluck</router-link>
     </li>
     <li>
       <router-link to="/logout">Logout</router-link>
@@ -129,7 +129,7 @@ export default {
   display: flex;
   justify-content: flex-end;
   font-size: 45px;
-  margin-right: 25px;
+  margin-right: 47px;
 }
 .host-name {
   display: flex;
@@ -188,6 +188,10 @@ textarea {
   margin-bottom: 10px;
   justify-content: flex-end;
   margin-right: 25px;
+  
+}
+.nav-container {
+  margin-top: 10px;
 }
 
 .decor {
@@ -242,31 +246,12 @@ ul.primary li a {
 ul.primary li:last-child a {
   border-right: none;
 }
-a:link {
-  color: black;
-  text-decoration: none;
-  text-align: center;
-  margin-top: 10px;
-}
-a:visited {
-  color: black;
-  text-decoration: none;
-}
-a:hover {
-  color: black;
-  text-decoration: none;
-  background:white;
-  border-radius: 5px;
-  padding: 5px;
-  box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.14);
-}
-a:active {
-  font-weight: bold;
-}
+
 .head {
   color: whitesmoke;
   font-weight: bold;
   text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
 }
+
 
 </style>
