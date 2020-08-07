@@ -12,7 +12,7 @@
       <router-link to="/">My Potlucks</router-link>
     </li>
     <li>
-      <a href="">My Profile</a>
+      <router-link to="/createpotluck">Create Potluck</router-link>
     </li>
     <li>
       <router-link to="/logout">Logout</router-link>
@@ -22,7 +22,7 @@
 </div>
       </div>
     <div class="page-name">
-      <header>Create Potluck</header>
+      <header class="head">Create Potluck</header>
     </div>
     
 
@@ -112,18 +112,11 @@ export default {
     };
   },
   methods: {
-
-
-    
     createPotluck() {
-      Potluck.createPotluck(this.potluck).then((response) => {
-        if (response.status == 201) {
-          this.$store.commit("SET_POTLUCK", this.potluck);
-          this.$router.push("/");
-        } 
-        
-      });
-    },
+          Potluck.createPotluck(this.potluck)
+              this.$store.commit("SET_POTLUCK", this.potluck)
+              this.$router.push("/");
+        },
   },
 };
 </script>
@@ -131,28 +124,30 @@ export default {
 
 
 <style>
+
 .page-name {
   display: flex;
   justify-content: flex-end;
   font-size: 45px;
-  margin-right: 25px;
+  margin-right: 47px;
 }
 .host-name {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin-left: auto;
   margin-top: 5px;
   font-size: 15px;
   margin-right: auto;
+   color: dimgray;
+ text-shadow: 2px 4px 4px rgba(0,0,0,0.2),
+                 0px -5px 10px rgba(255,255,255,0.15);
 }
 .potluck-container {
   display: flex;
   justify-content: space-around;
   background-color: rgba(245, 245, 245, 0.575);
-  padding-right: 25px;
-  padding-left: 25px;
   padding-top: 5px;
-  width: 260px;
+  width: 350px;
   height: 715px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
@@ -185,6 +180,7 @@ textarea {
   color: black;
   text-align: right;
   padding-bottom: 10px;
+  width: 80%;
 }
 
 .nav-box {
@@ -192,6 +188,10 @@ textarea {
   margin-bottom: 10px;
   justify-content: flex-end;
   margin-right: 25px;
+  
+}
+.nav-container {
+  margin-top: 10px;
 }
 
 .decor {
@@ -213,7 +213,7 @@ ul {
 
 li {
   display: inline-block;
-  
+  font-style: oblique;
   
 }
 
@@ -246,4 +246,12 @@ ul.primary li a {
 ul.primary li:last-child a {
   border-right: none;
 }
+
+.head {
+  color: whitesmoke;
+  font-weight: bold;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+}
+
+
 </style>

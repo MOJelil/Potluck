@@ -11,4 +11,6 @@ public interface PotluckDAO {
 	
 	List<Potluck> getAllPotlucksByUserId(Long userId);
 	
+	Potluck getPotluckDetails(int potluck_id);
+	
 }

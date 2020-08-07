@@ -55,7 +55,7 @@ const router = new Router({
       }
     },
     {
-      path: '/createpotluck',
+      path: '/potluck',
       name: 'create potluck',
       component: CreatePotluck,
       meta: {

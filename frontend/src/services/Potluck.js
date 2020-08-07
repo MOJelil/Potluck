@@ -8,14 +8,14 @@ const http = axios.create({
 export default {
 
   list() {
-    return http.get('/');
+    return axios.get('/potluck');
   },
 
   getPotluck(name) {
     return http.get(`//${name}`);
   }, 
   createPotluck(potluck) {
-    return axios.post('/createpotluck', potluck)
+    return axios.post('/potluck', potluck)
 
   },
   update(name, potluck) {

@@ -3,7 +3,7 @@
     <div class="register-container">
       <div id="register" class="text-center">
         <form class="form-register" @submit.prevent="register">
-          <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+          <h1 class="box-heading">Create Account</h1>
           <div
             class="alert alert-danger"
             role="alert"
@@ -153,28 +153,16 @@ export default {
 </script>
 
 <style>
-a:link {
-  color: black;
-  text-decoration: none;
-  text-align: center;
-  margin-top: 10px;
-}
-a:visited {
-  color: black;
-  text-decoration: none;
-}
-a:hover {
-  color: black;
-  text-decoration: none;
-  background: white;
-  border-radius: 5px;
-  padding: 5px;
-  box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.14);
-}
+
 body {
   background: url("../images/charcuterie_board.jpeg") no-repeat center fixed;
   background-size: cover;
   font-family: "Ubuntu", Gadget, sans-serif;
+}
+.box-heading {
+    color: dimgray;
+ text-shadow: 2px 4px 4px rgba(0,0,0,0.2),
+                 0px -5px 10px rgba(255,255,255,0.15);
 }
 .register-container {
   display: flex;
@@ -190,7 +178,7 @@ body {
 .register-box {
   display: flex;
   justify-content: flex-end;
-  margin-top: -300px;
+  margin-top: -325px;
   margin-right: 40px;
   margin-bottom: 50px;
 }
