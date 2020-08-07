@@ -51,12 +51,17 @@ public class PotluckSqlDAO implements PotluckDAO {
 		return potluckList;
 	}
 	
-	private Potluck mapRowToPotluckUser(SqlRowSet rs) {
-		Potluck potluck = new Potluck();
-		potluck.setName(rs.getString("name"));
+	@Override
+	public Potluck getPotluckDetails(int potluck_id) {
+		Potluck potluck = null;
+		String sql = "SELECT * FROM potluck WHERE potluck_id = ?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, potluck_id);
+		while(results.next()) {
+			potluck = mapRowToPotluck(results);
+		}
 		return potluck;
 	}
-
 	
 	private Potluck mapRowToPotluck(SqlRowSet rs) {
 		Potluck potluck = new Potluck();
@@ -74,6 +79,8 @@ public class PotluckSqlDAO implements PotluckDAO {
 		potluck.setNon_alcohol(rs.getInt("non_alcohol"));
 		return potluck;
 	}
+
+
 
 
 
