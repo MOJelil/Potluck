@@ -129,7 +129,7 @@ export default {
   display: flex;
   justify-content: flex-end;
   font-size: 45px;
-  margin-right: 25px;
+  margin-right: 47px;
 }
 .host-name {
   display: flex;
