@@ -32,7 +32,7 @@ public class PotluckController {
 	}
 
 	@ResponseStatus(HttpStatus.CREATED)
-	@RequestMapping(value = "/createpotluck", method = RequestMethod.POST)
+	@RequestMapping(value = "/potluck", method = RequestMethod.POST)
 	public void register(@Valid @RequestBody CreatePotluckDTO newPotluck, Principal principal) {
 		long user_id = getCurrentUserId(principal);
 		int user_id_int = (int)user_id;

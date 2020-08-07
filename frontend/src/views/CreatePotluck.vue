@@ -112,18 +112,11 @@ export default {
     };
   },
   methods: {
-
-
-    
     createPotluck() {
-      Potluck.createPotluck(this.potluck).then((response) => {
-        if (response.status == 201) {
-          this.$store.commit("SET_POTLUCK", this.potluck);
-          this.$router.push("/");
-        } 
-        
-      });
-    },
+          Potluck.createPotluck(this.potluck)
+              this.$store.commit("SET_POTLUCK", this.potluck)
+              this.$router.push("/");
+        },
   },
 };
 </script>
