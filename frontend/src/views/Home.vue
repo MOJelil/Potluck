@@ -1,5 +1,15 @@
 <template>
   <div class="home">
+    <nav>
+  <ul class="primary">
+    <li>
+      <router-link to="/createpotluck">Create Potluck</router-link>
+    </li>
+    <li>
+      <router-link to="/logout">Logout</router-link>
+    </li>
+  </ul>
+</nav>
    
     <h1>Home</h1>
      <div>

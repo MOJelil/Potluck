@@ -13,7 +13,7 @@ public class PotluckSqlDAO implements PotluckDAO {
 	
 	private JdbcTemplate jdbcTemplate;
 	
-	private static final String ALL_FIELDS = "potluck_id, location, name, user_id, description, guests, appetizer, entree, side_dishes, alcohol, non_alcohol";
+	private static final String ALL_FIELDS = "potluck_id, location, name, user_id, description, guests, appetizers, entree, side_dishes, alcohol, non_alcohol";
 	
 	public PotluckSqlDAO(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;

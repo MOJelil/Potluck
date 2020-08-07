@@ -36,7 +36,7 @@ export default {
   methods: {
     getPotluck() {
       Potluck.list().then((response) => {
-        this.$store.get(response.data);
+        this.$store.commit(response.data);
            this.$router.push("/");
       });
     },

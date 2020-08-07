@@ -16,6 +16,7 @@
 } */
 
 a:link {
+  
   color: black;
   text-decoration: none;
   text-align: center;

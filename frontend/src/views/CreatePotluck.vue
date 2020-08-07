@@ -9,13 +9,13 @@
 <nav>
   <ul class="primary">
     <li>
-      <router-link to="/home">My Potlucks</router-link>
+      <router-link to="/">My Potlucks</router-link>
     </li>
     <li>
       <a href="">My Profile</a>
     </li>
     <li>
-      <a href="">Create Potluck</a>
+      <router-link to="/logout">Logout</router-link>
     </li>
   </ul>
 </nav>
@@ -118,7 +118,7 @@ export default {
     createPotluck() {
       Potluck.createPotluck(this.potluck).then((response) => {
         if (response.status == 201) {
-          this.$store.commit("SET_MYPOTLUCKS", this.potluck);
+          this.$store.commit("SET_POTLUCK", this.potluck);
           this.$router.push("/");
         } 
         
@@ -218,6 +218,7 @@ li {
 }
 
 nav {
+ 
   position: relative;
   background: rgba(245, 245, 245, 0.856);
   background-image: -webkit-linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
