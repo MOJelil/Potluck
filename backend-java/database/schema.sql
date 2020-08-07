@@ -1,8 +1,10 @@
 BEGIN TRANSACTION;
 DROP TABLE IF EXISTS user_diet;
 DROP TABLE IF EXISTS dietary_restrictions;
+DROP TABLE IF EXISTS gueststable;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS potluck;
+
 
 
 
@@ -63,6 +65,18 @@ CREATE TABLE potluck (
 	non_alcohol     int,
 	CONSTRAINT PK_potluck PRIMARY KEY (potluck_id)
 );
+
+
+CREATE TABLE gueststable (
+	
+	user_id 		int	    NOT NULL,
+	potluck_id 		int     NOT NULL,
+	guest_id		int,
+	CONSTRAINT fk_user_id foreign key (user_id) references users (user_id),
+	CONSTRAINT fk_potluck foreign key (potluck_id) references potluck (potluck_id)
+);
+
+
 
 COMMIT TRANSACTION;
 
