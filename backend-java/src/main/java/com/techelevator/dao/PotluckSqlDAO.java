@@ -1,5 +1,8 @@
 package com.techelevator.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -7,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.techelevator.model.CreatePotluckDTO;
 import com.techelevator.model.Potluck;
+
 
 @Service
 public class PotluckSqlDAO implements PotluckDAO {
@@ -33,6 +37,27 @@ public class PotluckSqlDAO implements PotluckDAO {
 		return potluckCreated;
 	}
 	
+	@Override
+	public List<Potluck> getAllPotlucksByUserId(Long userId) {
+		Potluck potluck = null;
+		List<Potluck> potluckList = new ArrayList<>();
+		String sql = "SELECT * FROM potluck WHERE user_id = ?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+		while(results.next()) {
+			potluck = mapRowToPotluck(results);
+			potluckList.add(potluck);
+		}
+		return potluckList;
+	}
+	
+	private Potluck mapRowToPotluckUser(SqlRowSet rs) {
+		Potluck potluck = new Potluck();
+		potluck.setName(rs.getString("name"));
+		return potluck;
+	}
+
+	
 	private Potluck mapRowToPotluck(SqlRowSet rs) {
 		Potluck potluck = new Potluck();
 		potluck.setPotluck_id(rs.getLong("potluck_id"));
@@ -49,5 +74,7 @@ public class PotluckSqlDAO implements PotluckDAO {
 		potluck.setNon_alcohol(rs.getInt("non_alcohol"));
 		return potluck;
 	}
+
+
 
 }

@@ -1,10 +1,12 @@
 package com.techelevator.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.techelevator.dao.PotluckDAO;
 import com.techelevator.dao.UserDAO;
 import com.techelevator.model.CreatePotluckDTO;
+import com.techelevator.model.Potluck;
 
 @PreAuthorize("isAuthenticated()")
 @RestController
@@ -39,6 +42,12 @@ public class PotluckController {
 	
 	public Long getCurrentUserId(Principal principal) {
 		return userDAO.findByUsername(principal.getName()).getId();
+	}
+	
+	@RequestMapping(value = "/potluck", method = RequestMethod.GET)
+	public List<Potluck> getAllPotlucksByUserId(Principal principal) throws UsernameNotFoundException {
+		long userId = getCurrentUserId(principal);
+		return potluckDAO.getAllPotlucksByUserId(userId);
 	}
 	
 }
