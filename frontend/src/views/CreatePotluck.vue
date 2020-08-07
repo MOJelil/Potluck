@@ -22,7 +22,7 @@
 </div>
       </div>
     <div class="page-name">
-      <header>Create Potluck</header>
+      <header class="head">Create Potluck</header>
     </div>
     
 
@@ -131,6 +131,7 @@ export default {
 
 
 <style>
+
 .page-name {
   display: flex;
   justify-content: flex-end;
@@ -139,20 +140,21 @@ export default {
 }
 .host-name {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin-left: auto;
   margin-top: 5px;
   font-size: 15px;
   margin-right: auto;
+   color: dimgray;
+ text-shadow: 2px 4px 4px rgba(0,0,0,0.2),
+                 0px -5px 10px rgba(255,255,255,0.15);
 }
 .potluck-container {
   display: flex;
   justify-content: space-around;
   background-color: rgba(245, 245, 245, 0.575);
-  padding-right: 25px;
-  padding-left: 25px;
   padding-top: 5px;
-  width: 260px;
+  width: 350px;
   height: 715px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
@@ -185,6 +187,7 @@ textarea {
   color: black;
   text-align: right;
   padding-bottom: 10px;
+  width: 80%;
 }
 
 .nav-box {
@@ -213,7 +216,7 @@ ul {
 
 li {
   display: inline-block;
-  
+  font-style: oblique;
   
 }
 
@@ -246,4 +249,31 @@ ul.primary li a {
 ul.primary li:last-child a {
   border-right: none;
 }
+a:link {
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 10px;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+  background:white;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.14);
+}
+a:active {
+  font-weight: bold;
+}
+.head {
+  color: whitesmoke;
+  font-weight: bold;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+}
+
 </style>

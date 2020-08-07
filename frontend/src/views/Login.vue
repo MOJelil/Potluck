@@ -5,7 +5,7 @@
       <div v-else> -->
         <div>
           <div class="title">
-        <header>Startha Mewart Potlucks</header>
+        <header class="head">Startha Mewart Potlucks</header>
         </div>
         <div class="description">
           <p>
@@ -21,7 +21,7 @@
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
       
-      <h1 class="h3">Please Sign In</h1>
+      <h1 class="box-heading">Please Sign In</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -143,7 +143,7 @@ body {
 .login-box {
   display: flex;
   justify-content: flex-end;
-  margin-top: -300px; 
+  margin-top: -325px; 
   margin-right: 25px;
 }
 
@@ -187,6 +187,8 @@ body {
   color: black;
   text-align: right;
   padding-bottom: 10px;
-  
+}
+.head {
+  font-weight: bold;
 }
 </style>
