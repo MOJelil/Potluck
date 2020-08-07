@@ -3,23 +3,22 @@
     <div class="page-name">
       <header>Create Potluck</header>
     </div>
+    
 
     <div class="potluck-box">
       <div class="potluck-container">
-        <form class="form-create" @submit.prevent="register">
+        <form class="form-create">
           <div class="host-name">
             <h1>{{ $store.state.user.firstName }}'s Potluck</h1>
           </div>
           <div>Potluck Name</div>
           <input v-model="potluck.name" placeholder="Potluck Name" />
 
-          <!--<div v-model="{{ $store.state.user.username }}"></div>-->
-
           <div>Location</div>
           <input v-model="potluck.location" placeholder="Location" />
 
           <div>Date</div>
-          <vuejs-datepicker></vuejs-datepicker>
+
           <input v-model="potluck.date" placeholder="Date" />
 
           <div>Time</div>
@@ -64,12 +63,13 @@
 </template>
 
 <script>
-import authService from "../services/AuthService";
-//import Datepicker from 'vuejs-datepicker';
+import Potluck from "../services/Potluck";
+
+
 export default {
   name: "createPotluck",
   components: {
-    //Datepicker
+ 
   },
   data() {
     return {
@@ -87,28 +87,24 @@ export default {
         desserts: "",
         non_alcohol: "",
         alcohol: "",
-      }
-    }
+      },
+    };
   },
   methods: {
-    createPotluck(){
-    authService
-        .createPotluck(this.potluck)
-        .then((response) => {
-          if (response.status == 201) {
-            //this.$store.commit("SET_AUTH_TOKEN", response.data.token);
-            this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
-          
-          }else {
-            console.log("failed to store data");
-          }
-        
-         })
-    }
-  }
+
+
     
-  }   
+    createPotluck() {
+      Potluck.createPotluck(this.potluck).then((response) => {
+        if (response.status == 201) {
+          this.$store.commit("SET_MYPOTLUCKS", this.potluck);
+          this.$router.push("/");
+        } 
+        
+      });
+    },
+  },
+};
 </script>
 
 
@@ -166,5 +162,4 @@ textarea {
 ::-webkit-input-placeholder {
   text-align: right;
 }
-   
 </style>

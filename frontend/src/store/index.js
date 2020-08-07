@@ -19,7 +19,24 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    myPotlucks: [],
+    potluck: { 
+      username: "",
+      name: "",
+      location: "",
+      date: "",
+      time: "",
+      description: "",
+      guests: "",
+      appetizers: "",
+      entrees: "",
+      side_dishes: "",
+      desserts: "",
+      non_alcohol: "",
+      alcohol: "",
+    
+    },
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +54,12 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_POTLUCK(state, data) {
+      state.potluck = data;
+    },
+    SET_MYPOTLUCKs(state, potluck) {
+      state.myPotlucks.push(potluck);
     }
   }
 })
