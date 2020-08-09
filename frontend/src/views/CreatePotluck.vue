@@ -1,96 +1,96 @@
 <template>
-  <div>
-    <div class="nav-box">
-      <head>
-  <meta name="viewport" content="width=device-width">
-</head>
-<div class="nav-container">
-<span class="decor"></span>
-<nav>
-  <ul class="primary">
-    <li>
-      <router-link to="/">My Potlucks</router-link>
-    </li>
-    <li>
-      <router-link to="/createpotluck">Create Potluck</router-link>
-    </li>
-    <li>
-      <router-link to="/logout">Logout</router-link>
-    </li>
-  </ul>
-</nav>
-</div>
-      </div>
-    <div class="page-name">
-      <header class="head">Create Potluck</header>
-    </div>
-    
-
-    <div class="potluck-box">
-      <div class="potluck-container">
-        <form class="form-create">
-          <div class="host-name">
-            <h1>{{ $store.state.user.firstName }}'s Potluck</h1>
-          </div>
-          <div>Potluck Name</div>
-          <input v-model="potluck.name" placeholder="Potluck Name" />
-
-          <div>Location</div>
-          <input v-model="potluck.location" placeholder="Location" />
-
-          <div>Date</div>
-
-          <input v-model="potluck.date" placeholder="Date" />
-
-          <div>Time</div>
-          <input v-model="potluck.time" placeholder="Time" />
-
-          <div>Description</div>
-          <textarea type="text" v-model="potluck.description" placeholder="Description"></textarea>
-
-          <div>Number of Guests</div>
-          <input v-model="potluck.guests" placeholder="0" />
-
-          <div>Appetizers</div>
-          <input v-model="potluck.appetizers" placeholder="0" />
-
-          <div>Entrees</div>
-          <input v-model="potluck.entrees" placeholder="0" />
-
-          <div>Side Dishes</div>
-          <input v-model="potluck.side_dishes" placeholder="0" />
-
-          <div>Desserts</div>
-          <input v-model="potluck.desserts" placeholder="0" />
-
-          <div>Non-Alcoholic Beverages</div>
-          <input v-model="potluck.non_alcohol" placeholder="0" />
-
-          <div>Alcoholic Beverages</div>
-          <input v-model="potluck.alcohol" placeholder="0" />
-
-          <div></div>
-          <div class="button-position">
-            <button
-              type="submit"
-              v-on:click="createPotluck()"
-              class="gradient-button gradient-button-color"
-            >Create</button>
-          </div>
-        </form>
-      </div>
+<div>
+  <div class="nav-box">
+    <head>
+      <meta name="viewport" content="width=device-width" />
+    </head>
+    <div class="nav-container">
+      <span class="decor"></span>
+      <nav>
+        <ul class="primary">
+          <li>
+            <router-link to="/">My Potlucks</router-link>
+          </li>
+          <li>
+            <router-link to="/createpotluck">Create Potluck</router-link>
+          </li>
+          <li>
+            <router-link to="/logout">Logout</router-link>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
+  <div class="page-name">
+    <header class="head">Create Potluck</header>
+  </div>
+
+  <div class="potluck-box">
+    <div class="potluck-container">
+      <form class="form-create">
+        <div class="host-name">
+          <h1>{{ $store.state.user.firstName }}'s Potluck</h1>
+        </div>
+        <div>Potluck Name</div>
+        <input v-model="potluck.name" placeholder="Potluck Name" />
+
+        <div>Location</div>
+        <input v-model="potluck.location" placeholder="Location" />
+
+        <div>date</div>
+        <div><Datepicker v-model="potluck.date" format="yyyy-MM-dd" placeholder="date"></Datepicker></div>
+        <!--<input v-model="potluck.date" placeholder="Date" /> -->
+        
+        
+
+        <div>Time</div>
+        <input v-model="potluck.time" placeholder="Time" />
+
+        <div>Description</div>
+        <textarea type="text" v-model="potluck.description" placeholder="Description"></textarea>
+
+        <div>Number of Guests</div>
+        <input v-model="potluck.guests" placeholder="0" />
+
+        <div>Appetizers</div>
+        <input v-model="potluck.appetizers" placeholder="0" />
+
+        <div>Entrees</div>
+        <input v-model="potluck.entrees" placeholder="0" />
+
+        <div>Side Dishes</div>
+        <input v-model="potluck.side_dishes" placeholder="0" />
+
+        <div>Desserts</div>
+        <input v-model="potluck.desserts" placeholder="0" />
+
+        <div>Non-Alcoholic Beverages</div>
+        <input v-model="potluck.non_alcohol" placeholder="0" />
+
+        <div>Alcoholic Beverages</div>
+        <input v-model="potluck.alcohol" placeholder="0" />
+
+        <div></div>
+        <div class="button-position">
+          <button
+            type="submit"
+            v-on:click="createPotluck()"
+            class="gradient-button gradient-button-color"
+          >Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 </template>
 
 <script>
 import Potluck from "../services/Potluck";
-
-
+import Datepicker from "vuejs-datepicker";
 export default {
   name: "createPotluck",
   components: {
- 
+    Datepicker,
   },
   data() {
     return {
@@ -113,10 +113,10 @@ export default {
   },
   methods: {
     createPotluck() {
-          Potluck.createPotluck(this.potluck)
-              this.$store.commit("SET_POTLUCK", this.potluck)
-              this.$router.push("/");
-        },
+      Potluck.createPotluck(this.potluck);
+      this.$store.commit("SET_POTLUCK", this.potluck);
+      this.$router.push("/");
+    },
   },
 };
 </script>
@@ -124,7 +124,6 @@ export default {
 
 
 <style>
-
 .page-name {
   display: flex;
   justify-content: flex-end;
@@ -138,9 +137,9 @@ export default {
   margin-top: 5px;
   font-size: 15px;
   margin-right: auto;
-   color: dimgray;
- text-shadow: 2px 4px 4px rgba(0,0,0,0.2),
-                 0px -5px 10px rgba(255,255,255,0.15);
+  color: dimgray;
+  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2),
+    0px -5px 10px rgba(255, 255, 255, 0.15);
 }
 .potluck-container {
   display: flex;
@@ -151,7 +150,6 @@ export default {
   height: 715px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
- 
 }
 
 .potluck-box {
@@ -188,15 +186,14 @@ textarea {
   margin-bottom: 10px;
   justify-content: flex-end;
   margin-right: 25px;
-  
 }
 .nav-container {
   margin-top: 10px;
 }
 
 .decor {
-  background:#d2b48c;
-  background: -webkit-linear-gradient(left, #f6e3bd 50%,#d2b48c 50%);
+  background: #d2b48c;
+  background: -webkit-linear-gradient(left, #f6e3bd 50%, #d2b48c 50%);
   background: -moz-linear-gradient(left, #f6e3bd 50%, #d2b48c 50%);
   background: -o-linear-gradient(left, #f6e3bd 50%, #d2b48c 50%);
   background: linear-gradient(left, white 50%, #d2b48c 50%);
@@ -214,17 +211,15 @@ ul {
 li {
   display: inline-block;
   font-style: oblique;
-  
 }
 
 nav {
- 
   position: relative;
   background: rgba(245, 245, 245, 0.856);
-  background-image: -webkit-linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
-  background-image: -moz-linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
-  background-image: -o-linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
-  background-image: linear-gradient(bottom, #2B2B2B 7%, #333333 100%);
+  background-image: -webkit-linear-gradient(bottom, #2b2b2b 7%, #333333 100%);
+  background-image: -moz-linear-gradient(bottom, #2b2b2b 7%, #333333 100%);
+  background-image: -o-linear-gradient(bottom, #2b2b2b 7%, #333333 100%);
+  background-image: linear-gradient(bottom, #2b2b2b 7%, #333333 100%);
   text-align: center;
   letter-spacing: 1px;
   -webkit-box-shadow: 2px 2px 3px #888;
@@ -240,7 +235,7 @@ ul.primary li a {
   padding-left: 15px;
   padding-top: 5px;
   padding-bottom: 12px;
-  border-right: 1px solid #3D3D3D;
+  border-right: 1px solid #3d3d3d;
 }
 
 ul.primary li:last-child a {
@@ -250,8 +245,11 @@ ul.primary li:last-child a {
 .head {
   color: whitesmoke;
   font-weight: bold;
-  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-
+.center {
+  width: 50%;
+  margin: 0 auto;
+}
 </style>
