@@ -39,14 +39,17 @@
         <input v-model="potluck.location" placeholder="Location" />
         
 
-        <div>date</div>
+        <!-- <div>date</div>
+        
         <div><Datepicker v-model="potluck.date" format="yyyy-MM-dd" placeholder="date"></Datepicker></div>
-        
-        
+         -->
+        <div>Date</div>
+        <input v-model="potluck.date_created" placeholder="Date" />
+
 
         
         <div>Time</div>
-        <input v-model="potluck.time" placeholder="Time" />
+        <input v-model="potluck.potluck_time" placeholder="Time" />
         
 
         <div>Description</div>
@@ -106,22 +109,22 @@
 
 <script>
 import Potluck from "../services/Potluck";
-import Datepicker from "vuejs-datepicker";
+//import Datepicker from "vuejs-datepicker";
 
 export default {
   name: "createPotluck",
-  components: {
-    Datepicker,
+  // components: {
+  //   Datepicker,
     
-  },
+  // },
   data() {
     return {
       potluck: {
         username: "",
         name: "",
         location: "",
-        date: "",
-        time: "",
+        date_created: "",
+        potluck_time: "",
         description: "",
         guests: "",
         appetizers: "",
