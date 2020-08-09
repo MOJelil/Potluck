@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import CreatePotluck from '../views/CreatePotluck.vue'
+import Potlucks from '../views/Potlucks'
 
 Vue.use(Router)
 
@@ -58,6 +59,14 @@ const router = new Router({
       path: '/potluck',
       name: 'create potluck',
       component: CreatePotluck,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/potluck/:potluck_id',
+      name: 'potluck details',
+      component: Potlucks,
       meta: {
         requiresAuth: true
       }

@@ -11,8 +11,8 @@ export default {
     return axios.get('/potluck');
   },
 
-  getPotluck(name) {
-    return http.get(`//${name}`);
+  getPotluck(potluck_id) {
+    return http.get(`/potluck/${potluck_id}`);
   }, 
   createPotluck(potluck) {
     return axios.post('/potluck', potluck)

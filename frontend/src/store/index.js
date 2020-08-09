@@ -20,7 +20,6 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    // myPotlucks: [],
     potluck: { 
       username: "",
       name: "",
@@ -58,8 +57,6 @@ export default new Vuex.Store({
     SET_POTLUCK(state, data) {
       state.potluck = data;
     },
-    SET_MYPOTLUCKs(state, potluck) {
-      state.myPotlucks.push(potluck);
-    }
+   
   }
 })

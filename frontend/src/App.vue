@@ -5,11 +5,17 @@
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> -->
     
     <router-view />
+   
   </div>
   
 </template>
 
+<<<<<<< Updated upstream
 <style>
+=======
+
+<style scoped>
+>>>>>>> Stashed changes
 /* .links {
   display: flex;
   justify-content: flex-end;

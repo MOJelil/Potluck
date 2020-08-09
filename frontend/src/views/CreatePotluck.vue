@@ -29,46 +29,66 @@
     <div class="potluck-container">
       <form class="form-create">
         <div class="host-name">
-          <h1>{{ $store.state.user.firstName }}'s Potluck</h1>
+          <h3>{{ $store.state.user.firstName }}'s Potluck</h3>
         </div>
         <div>Potluck Name</div>
         <input v-model="potluck.name" placeholder="Potluck Name" />
+        
 
         <div>Location</div>
         <input v-model="potluck.location" placeholder="Location" />
+        
 
         <div>date</div>
         <div><Datepicker v-model="potluck.date" format="yyyy-MM-dd" placeholder="date"></Datepicker></div>
-        <!--<input v-model="potluck.date" placeholder="Date" /> -->
         
         
 
+        
         <div>Time</div>
         <input v-model="potluck.time" placeholder="Time" />
+        
 
         <div>Description</div>
-        <textarea type="text" v-model="potluck.description" placeholder="Description"></textarea>
+        <input type="text" v-model="potluck.description" placeholder="Description"/>
+        <br>
 
-        <div>Number of Guests</div>
-        <input v-model="potluck.guests" placeholder="0" />
+<input type="number" v-model="potluck.guests"/>
+ <input class="sliders" type="range" min="0" max="100" step="1" v-model="potluck.guests"> Number of Guests
+<br>
+     
 
-        <div>Appetizers</div>
-        <input v-model="potluck.appetizers" placeholder="0" />
+<input type="number" v-model="potluck.appetizers"> Appetizers
+     <input class="sliders" type="range" min="0" max="100" step="1" v-model="potluck.appetizers"/> 
+<br>
 
-        <div>Entrees</div>
-        <input v-model="potluck.entrees" placeholder="0" />
 
-        <div>Side Dishes</div>
-        <input v-model="potluck.side_dishes" placeholder="0" />
+    <input type="number" v-model="potluck.entrees"> Number of Entrees
+ <input class="sliders" type="range" min="0" max="100" step="1" v-model="potluck.entrees"/> 
+ <br>
 
-        <div>Desserts</div>
-        <input v-model="potluck.desserts" placeholder="0" />
 
-        <div>Non-Alcoholic Beverages</div>
-        <input v-model="potluck.non_alcohol" placeholder="0" />
+    <input type="number" v-model="potluck.side_dishes"> Side Dishes
+    <input class="sliders" type="range" min="0" max="100" step="1" v-model="potluck.side_dishes"/> 
+    <br>
 
-        <div>Alcoholic Beverages</div>
-        <input v-model="potluck.alcohol" placeholder="0" />
+
+
+<input type="number" v-model="potluck.desserts"> Desserts
+        <input class="sliders" type="range" min="0" max="100" step="1" v-model="potluck.desserts"/> 
+        <br>
+
+
+
+<input type="number" v-model="potluck.non_alcohol"> Non-Alcoholic Beverages
+       <input class="sliders" type="range" min="0" max="100" step="1" v-model="potluck.non_alcohol"/> 
+
+<br>
+
+  <input type="number" v-model="potluck.alcohol"> Alcoholic
+       <input class="sliders" type="range" min="0" max="100" step="1" v-model="potluck.alcohol"/> 
+
+
 
         <div></div>
         <div class="button-position">
@@ -87,10 +107,12 @@
 <script>
 import Potluck from "../services/Potluck";
 import Datepicker from "vuejs-datepicker";
+
 export default {
   name: "createPotluck",
   components: {
     Datepicker,
+    
   },
   data() {
     return {
@@ -124,6 +146,7 @@ export default {
 
 
 <style>
+
 .page-name {
   display: flex;
   justify-content: flex-end;
@@ -252,4 +275,97 @@ ul.primary li:last-child a {
   width: 50%;
   margin: 0 auto;
 }
+/* input[type=range] {
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    margin: 16px 0;
+    background: #3e3e3f;
+    background-image: -webkit-gradient(linear, 20% 0%, 20% 100%, color-stop(0%, #ADD8E6), color-stop(100%, #ADD8E6));
+    background-image: -webkit-linear-gradient(left, #ADD8E6 0%,#ADD8E6 100%);
+    background-image: -moz-linear-gradient(left, #ADD8E6 0%, #ADD8E6 100%);
+    background-image: -o-linear-gradient(to right, #ADD8E6 0%,#ADD8E6 100%);
+    background-image: linear-gradient(to right, #ADD8E6 0%,#ADD8E6 100%);
+    background-repeat: no-repeat;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  box-shadow: none;
+  background: transparent;
+  border-radius: 0px;
+  border: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: none;
+  border: 4px solid #ADD8E6;
+  height: 16px;
+  width: 16px;
+  border-radius: 2px;
+  background: #3e3e3f;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: transparent;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  box-shadow: none;
+  background: transparent;
+  border-radius: 0px;
+  border: none;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: none;
+  border: 4px solid #ADD8E6;
+  height: 16px;
+  width: 16px;
+  border-radius: 2px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: transparent;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+}
+input[type=range]::-ms-fill-upper {
+  background: transparent;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: none;
+  border: 4px solid #ADD8E6;
+  height: 16px;
+  width: 16px;
+  border-radius: 2px;
+  background: #ffffff;
+  cursor: pointer;
+  height: 4px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: transparent;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: transparent;
+} */
 </style>
