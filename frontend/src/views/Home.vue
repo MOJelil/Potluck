@@ -25,7 +25,6 @@
      <div class="page-name">
       <header class="head">Home</header>
     </div>
-    <potluck-details />
     <div class="potluck-user-flexbox">
     <div class="user-details-box">
       <div class="user-details-container">
@@ -44,7 +43,7 @@
             v-bind:potluck="currentPotluck"
           >
             <router-link
-              v-bind:to="{ name: 'Potluck', params: { id: currentPotluck.id } }"
+              v-bind:to="{ name: 'potluck-detail', params: { potluck_id: currentPotluck.potluck_id } }"
             >{{ currentPotluck.name }}</router-link>
           </div>
         </span>
@@ -56,14 +55,11 @@
 
 
 <script>
-import PotluckDetails from "../components/PotluckDetails";
+
 import Potluck from "@/services/Potluck";
 
 export default {
   name: "home",
-  components: {
-    PotluckDetails,
-  },
   data() {
     return {
       allPotlucks: []

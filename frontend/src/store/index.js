@@ -22,6 +22,7 @@ export default new Vuex.Store({
     user: currentUser || {},
     potluck: { 
       username: "",
+      potluck_id: "",
       name: "",
       location: "",
       date: "",
@@ -55,6 +56,9 @@ export default new Vuex.Store({
       axios.defaults.headers.common = {};
     },
     SET_POTLUCK(state, data) {
+      state.potluck = data;
+    },
+    SET_ACTIVE_POTLUCK(state, data) {
       state.potluck = data;
     },
    

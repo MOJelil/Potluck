@@ -10,12 +10,7 @@
   
 </template>
 
-<<<<<<< Updated upstream
 <style>
-=======
-
-<style scoped>
->>>>>>> Stashed changes
 /* .links {
   display: flex;
   justify-content: flex-end;
