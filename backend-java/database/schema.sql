@@ -54,6 +54,8 @@ CREATE TABLE potluck (
 	potluck_id 		SERIAL NOT NULL,
 	name			varchar(50)		NOT NULL,
 	location		varchar(50)		NOT NULL,
+	date_created	DATE 			NOT NULL,
+	potluck_time	TIME			NOT NULL,
 	user_id 		int				NOT NULL,
 	description		varchar(250)	NOT NULL,
 	guests			int,
@@ -71,7 +73,6 @@ CREATE TABLE gueststable (
 	
 	user_id 		int	    NOT NULL,
 	potluck_id 		int     NOT NULL,
-	guest_id		int,
 	CONSTRAINT fk_user_id foreign key (user_id) references users (user_id),
 	CONSTRAINT fk_potluck foreign key (potluck_id) references potluck (potluck_id)
 );

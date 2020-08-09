@@ -5,6 +5,10 @@ public class Potluck {
 	private Long potluck_id;
 	private String name;
 	private String location;
+	private String date_created;
+
+	private String potluck_time;
+
 	private int user_id;
 	private String description;
 	private int guests;
@@ -19,12 +23,15 @@ public class Potluck {
 
 	}
 
-	public Potluck(Long potluck_id, String name, String location, int user_id, String description, int guests, int appetizers,
-			int entrees, int side_dishes, int desserts, int alcohol, int non_alcohol) {
+	public Potluck(Long potluck_id, String name, String location, String date_created, String potluck_time, int user_id,
+			String description, int guests, int appetizers, int entrees, int side_dishes, int desserts, int alcohol,
+			int non_alcohol) {
 		// super();
 		this.potluck_id = potluck_id;
 		this.name = name;
 		this.location = location;
+		this.date_created = date_created;
+		this.potluck_time = potluck_time;
 		this.user_id = user_id;
 		this.description = description;
 		this.guests = guests;
@@ -43,9 +50,25 @@ public class Potluck {
 	public void setPotluck_id(Long potluck_id) {
 		this.potluck_id = potluck_id;
 	}
-	
+
 	public String getName() {
 		return name;
+	}
+
+	public String getDate_created() {
+		return date_created;
+	}
+
+	public void setDate_created(String date_created) {
+		this.date_created = date_created;
+	}
+
+	public String getPotluck_time() {
+		return potluck_time;
+	}
+
+	public void setPotluck_time(String potluck_time) {
+		this.potluck_time = potluck_time;
 	}
 
 	public void setName(String name) {
@@ -131,7 +154,5 @@ public class Potluck {
 	public void setNon_alcohol(int non_alcohol) {
 		this.non_alcohol = non_alcohol;
 	}
-
-
 
 }

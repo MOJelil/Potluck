@@ -1,19 +1,24 @@
 package com.techelevator.model;
 
 public class CreatePotluckDTO {
-	
+
 	private String location;
 	private String name;
+
+	private String date_created;
+
+	private String potluck_time;
 	private int user_id;
 	private String description;
 	private int guests;
 	private int appetizers;
+
 	private int entrees;
 	private int side_dishes;
 	private int desserts;
 	private int alcohol;
 	private int non_alcohol;
-	
+
 	public String getLocation() {
 		return location;
 	}
@@ -21,13 +26,29 @@ public class CreatePotluckDTO {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getDate_created() {
+		return date_created;
+	}
+
+	public void setDate_create(String date_created) {
+		this.date_created = date_created;
+	}
+
+	public String getPotluck_time() {
+		return potluck_time;
+	}
+
+	public void setPotluck_time(String potluck_time) {
+		this.potluck_time = potluck_time;
 	}
 
 	public int getUser_id() {
@@ -77,7 +98,7 @@ public class CreatePotluckDTO {
 	public void setSide_dishes(int side_dishes) {
 		this.side_dishes = side_dishes;
 	}
-	
+
 	public int getDesserts() {
 		return desserts;
 	}
@@ -101,7 +122,5 @@ public class CreatePotluckDTO {
 	public void setNon_alcohol(int non_alcohol) {
 		this.non_alcohol = non_alcohol;
 	}
-
-
 
 }
