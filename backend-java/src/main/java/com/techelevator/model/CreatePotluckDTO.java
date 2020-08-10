@@ -1,13 +1,19 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class CreatePotluckDTO {
 
 	private String location;
 	private String name;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate potluck_date;
 
-	private String date_created;
-
-	private String potluck_time;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private LocalTime potluck_time;
 	private int user_id;
 	private String description;
 	private int guests;
@@ -35,19 +41,19 @@ public class CreatePotluckDTO {
 		this.name = name;
 	}
 
-	public String getDate_created() {
-		return date_created;
+	public LocalDate getPotluck_Date() {
+		return potluck_date;
 	}
 
-	public void setDate_create(String date_created) {
-		this.date_created = date_created;
+	public void setPotluck_Date(LocalDate potluck_date) {
+		this.potluck_date = potluck_date;
 	}
 
-	public String getPotluck_time() {
+	public LocalTime getPotluck_Time() {
 		return potluck_time;
 	}
 
-	public void setPotluck_time(String potluck_time) {
+	public void setPotluck_Time(LocalTime potluck_time) {
 		this.potluck_time = potluck_time;
 	}
 

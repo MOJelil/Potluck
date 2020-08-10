@@ -54,8 +54,8 @@ CREATE TABLE potluck (
 	potluck_id 		SERIAL NOT NULL,
 	name			varchar(50)		NOT NULL,
 	location		varchar(50)		NOT NULL,
-	date_created	varchar(50)		NOT NULL,
-	potluck_time	varchar(50)		NOT NULL,
+	potluck_date	DATE 			NOT NULL,
+	potluck_time	TIME			NOT NULL,
 	user_id 		int				NOT NULL,
 	description		varchar(250)	NOT NULL,
 	guests			int,
@@ -69,7 +69,7 @@ CREATE TABLE potluck (
 );
 
 
-CREATE TABLE gueststable (
+CREATE TABLE guests (
 	
 	user_id 		int	    NOT NULL,
 	potluck_id 		int     NOT NULL,

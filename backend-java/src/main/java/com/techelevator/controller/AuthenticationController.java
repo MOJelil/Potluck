@@ -20,7 +20,6 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.techelevator.dao.PotluckDAO;
 import com.techelevator.dao.UserDAO;
-
 import com.techelevator.model.LoginDTO;
 import com.techelevator.model.RegisterUserDTO;
 import com.techelevator.model.User;
@@ -34,7 +33,6 @@ public class AuthenticationController {
 	private final TokenProvider tokenProvider;
 	private final AuthenticationManagerBuilder authenticationManagerBuilder;
 	private UserDAO userDAO;
-
 
 	public AuthenticationController(TokenProvider tokenProvider,
 			AuthenticationManagerBuilder authenticationManagerBuilder, UserDAO userDAO, PotluckDAO potluckDAO) {
@@ -69,8 +67,6 @@ public class AuthenticationController {
 			userDAO.create(newUser);
 		}
 	}
-
-	
 
 	/**
 	 * Object to return as body in JWT Authentication.

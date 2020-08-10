@@ -1,13 +1,21 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Potluck {
 
 	private Long potluck_id;
 	private String name;
-	private String location;
-	private String date_created;
 
-	private String potluck_time;
+	private String location;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate potluck_date;
+
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+	private LocalTime potluck_time;
 
 	private int user_id;
 	private String description;
@@ -23,14 +31,14 @@ public class Potluck {
 
 	}
 
-	public Potluck(Long potluck_id, String name, String location, String date_created, String potluck_time, int user_id,
-			String description, int guests, int appetizers, int entrees, int side_dishes, int desserts, int alcohol,
-			int non_alcohol) {
+	public Potluck(Long potluck_id, String name, String location, LocalDate potluck_date, LocalTime potluck_time,
+			int user_id, String description, int guests, int appetizers, int entrees, int side_dishes, int desserts,
+			int alcohol, int non_alcohol) {
 		// super();
 		this.potluck_id = potluck_id;
 		this.name = name;
 		this.location = location;
-		this.date_created = date_created;
+		this.potluck_date = potluck_date;
 		this.potluck_time = potluck_time;
 		this.user_id = user_id;
 		this.description = description;
@@ -55,19 +63,19 @@ public class Potluck {
 		return name;
 	}
 
-	public String getDate_created() {
-		return date_created;
+	public LocalDate getPotluck_Date() {
+		return potluck_date;
 	}
 
-	public void setDate_created(String date_created) {
-		this.date_created = date_created;
+	public void setPotluck_Date(LocalDate potluck_date) {
+		this.potluck_date = potluck_date;
 	}
 
-	public String getPotluck_time() {
+	public LocalTime getPotluck_Time() {
 		return potluck_time;
 	}
 
-	public void setPotluck_time(String potluck_time) {
+	public void setPotluck_Time(LocalTime potluck_time) {
 		this.potluck_time = potluck_time;
 	}
 
