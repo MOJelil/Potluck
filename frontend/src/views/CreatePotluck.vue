@@ -12,7 +12,7 @@
             <router-link to="/">My Potlucks</router-link>
           </li>
           <li>
-            <router-link to="/createpotluck">Create Potluck</router-link>
+            <router-link to="/potluck">Create Potluck</router-link>
           </li>
           <li>
             <router-link to="/logout">Logout</router-link>
@@ -39,9 +39,6 @@
         <div>Location</div>
         <input v-model="potluck.location"  class="form-field" />
         
-
-      
-       
         <div>Date</div>
         <input type="date" v-model="potluck.potluck_date" class="form-field" id="date"/>
 
@@ -108,7 +105,7 @@
         <div class="button-position">
           <button
             type="submit"
-            v-on:click="createPotluck()"
+            v-on:click.prevent="createPotluck()"
             class="gradient-button gradient-button-color"
           >Create</button>
         </div>
@@ -119,7 +116,7 @@
 </template>
 
 <script>
-import Potluck from "../services/Potluck";
+import PotluckService from "../services/Potluck";
 
 
 export default {
@@ -146,10 +143,12 @@ export default {
   },
   methods: {
     createPotluck() {
-      Potluck.createPotluck(this.potluck);
+      PotluckService.createPotluck(this.potluck).then(()  => {
       this.$store.commit("SET_POTLUCK", this.potluck);
-      this.$router.push("/");
-      this.$router.reload("/");
+       this.$router.push("/");
+     
+      });
+
     },
   },
 };

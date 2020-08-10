@@ -13,7 +13,7 @@
       <router-link to="/">My Potlucks</router-link>
     </li>
     <li>
-      <router-link to="/createpotluck">Create Potluck</router-link>
+      <router-link to="/potluck">Create Potluck</router-link>
     </li>
     <li>
       <router-link to="/logout">Logout</router-link>
@@ -34,28 +34,19 @@
     </div>
     <div class="potluck-details-box">
       <div class="potluck-details-container">
-        <!-- <span class="potlucks"> -->
+        <span class="potlucks">
           <div>
             <h2>My Potlucks</h2>
           </div>
-            <div v-for="currentPotluck in allPotlucks" v-bind:key="currentPotluck.name" v-bind:potluck="currentPotluck">
-            <router-link v-bind:to="{ name: 'potluck-detail', params: { potluck_id: currentPotluck.potluck_id } }">{{ currentPotluck.name }}</router-link>
+            <div v-for="currentPotluck in allPotlucks" v-bind:key="currentPotluck.potluck_id" v-bind:potluck="currentPotluck">
+            <router-link v-bind:to="{ name: 'potluck-detail', params: { id: currentPotluck.potluck_id } }">{{ currentPotluck.name }}</router-link>
             
-              <router-link :to="{ name: 'update-potluck', params: {potluck_id: currentPotluck.potluck_id} }">Edit</router-link>
+              <router-link :to="{ name: 'update-potluck', params: {id: currentPotluck.potluck_id} }">Edit</router-link>
             
           </div>
+        </span>
         </div>
     </div>
-    
-    <div v-for="currentPotluck in allPotlucks" v-bind:key="currentPotluck.name" v-bind:potluck="currentPotluck">
-      <router-link v-bind:to="{ name: 'Potluck', params: { id: currentPotluck.id } }">
-        {{ currentPotluck.name }}
-      </router-link>     
-    </div>
-
-    
-
-
    </div>
   </div>
   </body>
