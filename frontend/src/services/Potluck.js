@@ -19,8 +19,8 @@ export default {
     return axios.post('/potluck', potluck)
   },
 
-  update(name, potluck) {
-    return axios.put(`/potluck/${name}`, potluck);
+  update(potluck_id, potluck) {
+    return axios.put(`/potluck/${potluck_id}`, potluck);
   },
 
   delete(name) {
