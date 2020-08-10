@@ -15,7 +15,7 @@
             type="text"
             id="firstName"
             class="form-control"
-            placeholder="First Name"
+            
             v-model="user.firstName"
             required
           />
@@ -25,7 +25,7 @@
             type="text"
             id="lastName"
             class="form-control"
-            placeholder="Last Name"
+            
             v-model="user.lastName"
             required
           />
@@ -35,7 +35,7 @@
             type="text"
             id="phone"
             class="form-control"
-            placeholder="Phone Number"
+           
             v-model="user.phone"
           />
 
@@ -44,7 +44,7 @@
             type="text"
             id="email"
             class="form-control"
-            placeholder="Email"
+           
             v-model="user.email"
             required
           />
@@ -54,7 +54,7 @@
             type="text"
             id="username"
             class="form-control"
-            placeholder="Username"
+            
             v-model="user.username"
             required
             autofocus
@@ -65,7 +65,7 @@
             type="password"
             id="password"
             class="form-control"
-            placeholder="Password"
+           
             v-model="user.password"
             required
           />
@@ -75,7 +75,7 @@
             type="password"
             id="confirmPassword"
             class="form-control"
-            placeholder="Confirm Password"
+           
             v-model="user.confirmPassword"
             required
           />
@@ -83,8 +83,9 @@
           <p>Dietary Restrictions</p>
 
           <div v-for="dietRestriction in allDietaryRestrictions" :key="dietRestriction">
-            <label>{{ dietRestriction }}</label>
+            
             <input type="checkbox" v-model="user.diet" :value="dietRestriction" />
+            <label>{{ dietRestriction }}</label>
           </div>
           <router-link :to="{ name: 'login' }">Have an account?</router-link>
           <div>
@@ -170,7 +171,7 @@ body {
   background-color: rgba(245, 245, 245, 0.575);
   justify-content: space-around;
   width: 300px;
-  height: 700px;
+  height: 740px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   padding-bottom: 10px;
@@ -219,7 +220,10 @@ body {
   display: flex;
   flex-direction: column;
   color: black;
-  text-align: right;
+  text-align: left;
   padding-bottom: 10px;
+}
+.form-control {
+  margin-bottom: 5px;
 }
 </style>

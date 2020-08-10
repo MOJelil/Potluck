@@ -37,7 +37,7 @@
         type="text"
         id="username"
         class="form-control"
-        placeholder="Username"
+        
         v-model="user.username"
         required
         autofocus
@@ -47,7 +47,7 @@
         type="password"
         id="password"
         class="form-control"
-        placeholder="Password"
+        
         v-model="user.password"
         required
       />
@@ -186,10 +186,12 @@ body {
   display:flex;
   flex-direction: column;
   color: black;
-  text-align: right;
+  text-align: left;
   padding-bottom: 10px;
+  
 }
 .head {
   font-weight: bold;
+  margin-top: 10px;
 }
 </style>

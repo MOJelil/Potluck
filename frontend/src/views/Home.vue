@@ -1,4 +1,5 @@
-<template class="home">
+<template>
+<body class="home">
   <div>
   <div class="nav-box">
       <head>
@@ -12,7 +13,7 @@
       <router-link to="/">My Potlucks</router-link>
     </li>
     <li>
-      <router-link to="/potluck">Create Potluck</router-link>
+      <router-link to="/createpotluck">Create Potluck</router-link>
     </li>
     <li>
       <router-link to="/logout">Logout</router-link>
@@ -22,8 +23,8 @@
 </div>
       </div>
 
-     <div class="page-name">
-      <header class="head">Home</header>
+     <div class="page-name-home">
+      <header class="head-home">Home</header>
     </div>
     <div class="potluck-user-flexbox">
     <div class="user-details-box">
@@ -33,7 +34,7 @@
     </div>
     <div class="potluck-details-box">
       <div class="potluck-details-container">
-        <span class="potlucks">
+        <!-- <span class="potlucks"> -->
           <div>
             <h2>My Potlucks</h2>
           </div>
@@ -43,13 +44,22 @@
               <router-link :to="{ name: 'update-potluck', params: {potluck_id: currentPotluck.potluck_id} }">Edit</router-link>
             
           </div>
-        </span>
-      </div>
+        </div>
     </div>
-  </div>
-</div>
-</template>
+    
+    <div v-for="currentPotluck in allPotlucks" v-bind:key="currentPotluck.name" v-bind:potluck="currentPotluck">
+      <router-link v-bind:to="{ name: 'Potluck', params: { id: currentPotluck.id } }">
+        {{ currentPotluck.name }}
+      </router-link>     
+    </div>
 
+    
+
+
+   </div>
+  </div>
+  </body>
+</template>
 
 <script>
 
@@ -67,9 +77,9 @@ export default {
   }
 };
 </script>
-<style scoped>
-body {
-  background: url("../images/wooden-bg.jpg") no-repeat center fixed !important;
+<style>
+ body.home {
+  background: url("../images/wooden-bg.jpg") no-repeat center fixed;
   background-size: cover;
   font-family: "Ubuntu", Gadget, sans-serif;
   margin: 0;
@@ -81,10 +91,16 @@ h2 {
                  0px -5px 10px rgba(255,255,255,0.15);
 }
 
-.page-name {
+.page-name-home {
    position: absolute;
   left: 25px;
-  top: 25px;
+  top: 10px;
+  font-size: 45px;
+}
+.head-home {
+  color: whitesmoke;
+  font-weight: bold;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
 }
 .decor {
   background:#d2b48c;
