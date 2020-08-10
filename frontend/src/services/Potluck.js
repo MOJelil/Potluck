@@ -20,7 +20,7 @@ export default {
   },
 
   update(name, potluck) {
-    return http.put(`//${name}`, potluck);
+    return axios.put(`/potluck/${name}`, potluck);
   },
 
   delete(name) {

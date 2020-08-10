@@ -65,6 +65,40 @@ public class PotluckSqlDAO implements PotluckDAO {
 		}
 		return potluck;
 	}
+	
+	@Override
+	public boolean update(Potluck potluck, int potluck_id) {
+		boolean potluckUpdated = false;
+		String sql = "UPDATE potluck SET name = ?, location = ?, date_created = ?, potluck_time = ?, "
+				+ "description = ?, guests = ?, appetizers = ?, entrees = ?, side_dishes = ?, desserts = ?, alcohol = ?, non_alcohol = ? WHERE potluck_id = ?";
+		
+		try {
+			int count = jdbcTemplate.update(sql, potluck.getName(), potluck.getLocation(), 
+					potluck.getDate_created(), potluck.getPotluck_time(), potluck.getDescription(), potluck.getGuests(), potluck.getAppetizers(),
+					potluck.getEntrees(), potluck.getSide_dishes(), potluck.getDesserts(),
+					potluck.getAlcohol(), potluck.getNon_alcohol(), potluck_id);
+			potluckUpdated = (count == 1);
+		} catch (DataAccessException e) {
+			System.out.print(e);
+		}
+		return potluckUpdated;
+		
+		
+		
+		
+		
+		
+//		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, potluck.getName(), potluck.getLocation(), 
+//				potluck.getDate_created(), potluck.getPotluck_time(), potluck.getDescription(), potluck.getGuests(), potluck.getAppetizers(),
+//				potluck.getEntrees(), potluck.getSide_dishes(), potluck.getDesserts(),
+//				potluck.getAlcohol(), potluck.getNon_alcohol(), potluck_id);
+//		potluckUpdated = true;
+//		
+//		while (results.next()) {
+//			potluck = mapRowToPotluck(results);
+//		}
+//		return potluckUpdated;
+	}
 
 	private Potluck mapRowToPotluck(SqlRowSet rs) {
 		Potluck potluck = new Potluck();

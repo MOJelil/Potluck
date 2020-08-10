@@ -5,6 +5,7 @@ import java.util.List;
 import com.techelevator.model.CreatePotluckDTO;
 import com.techelevator.model.Potluck;
 
+
 public interface PotluckDAO {
 	
 	boolean create(CreatePotluckDTO newPotluck, Long user_id);
@@ -12,5 +13,7 @@ public interface PotluckDAO {
 	List<Potluck> getAllPotlucksByUserId(Long userId);
 	
 	Potluck getPotluckDetails(int potluck_id);
+	
+	boolean update(Potluck potluck, int potluck_id);
 	
 }

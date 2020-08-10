@@ -56,4 +56,9 @@ public class PotluckController {
 		return potluckDAO.getPotluckDetails(potluck_id);
 	}
 	
+    @RequestMapping(path = "/potluck/{id}", method = RequestMethod.PUT)
+    public void updatePotluckDetails(@Valid @RequestBody Potluck potluck, @PathVariable("id") int potluck_id) {
+        potluckDAO.update(potluck,potluck_id);
+	}
+	
 }

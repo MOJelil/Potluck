@@ -37,14 +37,11 @@
           <div>
             <h2>My Potlucks</h2>
           </div>
-          <div
-            v-for="currentPotluck in allPotlucks"
-            v-bind:key="currentPotluck.name"
-            v-bind:potluck="currentPotluck"
-          >
-            <router-link
-              v-bind:to="{ name: 'potluck-detail', params: { potluck_id: currentPotluck.potluck_id } }"
-            >{{ currentPotluck.name }}</router-link>
+            <div v-for="currentPotluck in allPotlucks" v-bind:key="currentPotluck.name" v-bind:potluck="currentPotluck">
+            <router-link v-bind:to="{ name: 'potluck-detail', params: { potluck_id: currentPotluck.potluck_id } }">{{ currentPotluck.name }}</router-link>
+            
+              <router-link :to="{ name: 'update-potluck', params: {potluck_id: currentPotluck.potluck_id} }">Edit</router-link>
+            
           </div>
         </span>
       </div>

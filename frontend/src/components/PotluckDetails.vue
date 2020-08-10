@@ -22,7 +22,7 @@ import potluck from "@/services/Potluck.js";
 export default {
   name: "topic-details",
   props: {
-    potluck_id: Number
+    potluck_id: Number,
   },
   created() {
     potluck
@@ -35,6 +35,8 @@ export default {
           this.$router.push("/not-found");
         }
       });
+
+       
   }
 };
 </script>

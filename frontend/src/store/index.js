@@ -35,7 +35,6 @@ export default new Vuex.Store({
       desserts: "",
       non_alcohol: "",
       alcohol: "",
-    
     },
   },
   mutations: {

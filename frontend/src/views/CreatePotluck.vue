@@ -141,6 +141,7 @@ export default {
       Potluck.createPotluck(this.potluck);
       this.$store.commit("SET_POTLUCK", this.potluck);
       this.$router.push("/");
+      this.$router.reload("/");
     },
   },
 };
