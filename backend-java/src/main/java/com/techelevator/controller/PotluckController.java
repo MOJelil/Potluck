@@ -59,15 +59,5 @@ public class PotluckController {
     @RequestMapping(path = "/potluck/{id}", method = RequestMethod.PUT)
     public void updatePotluckDetails(@Valid @RequestBody Potluck potluck, @PathVariable("id") int potluck_id) {
         potluckDAO.update(potluck,potluck_id);
-	}
-    
-//    @ResponseStatus(HttpStatus.CREATED)
-//	@RequestMapping(value = "/dish", method = RequestMethod.POST)
-//	public void createDish(@Valid @RequestBody Dish newDish, Principal principal) {
-//		long user_id = getCurrentUserId(principal);
-//		int user_id_int = (int)user_id;
-//		newDish.setUser_id(user_id_int);
-//		dishDAO.create(dish, user_id);
-//	}
-	
+	}	
 }
