@@ -37,8 +37,8 @@
         <input v-model="potluck.location"  class="form-field" />
         
         <div>Date</div>
-        <input type="date" v-model="potluck.potluck_date" class="form-field" id="date"/>
-        
+        <input type="date" v-model="potluck.potluck_date" class="form-field"/>
+
 
         
         <div>Time</div>
@@ -174,8 +174,7 @@ export default {
   font-size: 15px;
   margin-right: auto;
   color: dimgray;
-  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2),
-    0px -5px 10px rgba(255, 255, 255, 0.15);
+  
 }
 .potluck-container {
   display: flex;
