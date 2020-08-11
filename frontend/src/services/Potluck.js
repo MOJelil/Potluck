@@ -27,8 +27,8 @@ export default {
     return http.delete(`//${name}`);
   },
 
-  bringDish(potluck_id, dish) {
-    return axios.post(`/potluck/${potluck_id}/dish`, dish);
+  bringDish(dish) {
+    return axios.post(`/potluck/${dish.potluck_id}/dish`, dish);
   },
 
   inviteGuest(potluck_id, guest) {

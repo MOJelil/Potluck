@@ -83,13 +83,13 @@ CREATE TABLE guests (
 
 CREATE TABLE dish (
 	dish_id 		SERIAL 			NOT NULL,
-	name			varchar(50)		NOT NULL,
+	dish_name		varchar(50)		NOT NULL,
 	category		varchar(250)	NOT NULL,
-	serving_number	int				NOT NULL,
+	servings		int				NOT NULL,
 	dietary_id		int 			NOT NULL,
 	potluck_id 		int 			NOT NULL,
 	recipe			varchar(250)	NOT NULL,
-	guests			int,
+	user_id			int,
 	
 	CONSTRAINT PK_dish PRIMARY KEY (dish_id),
 	CONSTRAINT fk_dietary foreign key (dietary_id) references dietary_restrictions (dietary_id),
