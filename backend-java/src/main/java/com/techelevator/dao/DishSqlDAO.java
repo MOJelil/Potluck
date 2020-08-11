@@ -22,13 +22,18 @@ public class DishSqlDAO implements DishDAO {
 	@Override
 	public boolean create(CreateDishDTO newDish, Long user_id) {
 		boolean dishCreated = false;
-		String sql = "INSERT INTO dish (dish_name, category, servings, dietary_id, potluck_id, recipe, user_id) VALUES (?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO dish (dish_name, category, servings, potluck_id, recipe, user_id) VALUES (?,?,?,?,?,?)";
 
 		try {
 			int count = jdbcTemplate.update(sql, newDish.getDish_name(), newDish.getCategory(),
-					newDish.getServings(), newDish.getDietary_id(), newDish.getPotluck_id(),
+					newDish.getServings(), newDish.getPotluck_id(),
 					newDish.getRecipe(), newDish.getUser_id());
 			dishCreated = (count == 1);
+			//Insert diet restriction information
+			for (String restriction : newDish.getDiet()) {
+				String sqlDietaryRestrictions = "INSERT INTO dish_restriction VALUES ((SELECT dish_id FROM dish ORDER BY dish_id DESC LIMIT 1),(SELECT dietary_id from dietary_restrictions where restriction_name = ?));";
+				int rs = jdbcTemplate.update(sqlDietaryRestrictions, restriction);
+			}
 		} catch (DataAccessException e) {
 			System.out.print(e);
 		}
@@ -40,7 +45,6 @@ public class DishSqlDAO implements DishDAO {
 		dish.setDish_name(rs.getString("dish_name"));
 		dish.setCategory(rs.getString("category"));
 		dish.setServings(rs.getInt("servings"));
-		dish.setDietary_id(rs.getInt("dietary_id"));
 		dish.setPotluck_id(rs.getInt("potluck_id"));
 		dish.setRecipe(rs.getString("recipe"));
 		dish.setUser_id(rs.getInt("user_id"));

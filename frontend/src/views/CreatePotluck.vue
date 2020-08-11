@@ -95,7 +95,7 @@
 
 
   <div class="slider-labels"> Alcoholic Beverages </div> 
-       <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.alcohl" /> 
+       <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.alcohol" /> 
       <input type="number" v-model="potluck.alcohol" class="field"/>
 
 

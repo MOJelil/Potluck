@@ -1,22 +1,24 @@
 package com.techelevator.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Dish {
 
 	private String dish_name;
 	private String category;
 	private int servings;
-	private int dietary_id;
 	private int potluck_id;
 	private String recipe;
 	private int user_id;
+	private List<String> diet = new ArrayList<>();
 
-	public Dish(String dish_name, String category, int servings, int dietary_id, int potluck_id, String recipe,
+	public Dish(String dish_name, String category, int servings, int potluck_id, String recipe,
 			int user_id) {
 		super();
 		this.dish_name = dish_name;
 		this.category = category;
 		this.servings = servings;
-		this.dietary_id = dietary_id;
 		this.potluck_id = potluck_id;
 		this.recipe = recipe;
 		this.user_id = user_id; 
@@ -43,12 +45,6 @@ public class Dish {
 	public void setServings(int servings) {
 		this.servings = servings;
 	}
-	public int getDietary_id() {
-		return dietary_id;
-	}
-	public void setDietary_id(int dietary_id) {
-		this.dietary_id = dietary_id;
-	}
 	public int getPotluck_id() {
 		return potluck_id;
 	}
@@ -66,6 +62,12 @@ public class Dish {
 	}
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
+	}
+	public List<String> getDiet() {
+		return diet;
+	}
+	public void setDiet(List<String> diet) {
+		this.diet = diet;
 	}
 
 }
