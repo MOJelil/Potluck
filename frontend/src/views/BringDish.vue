@@ -76,7 +76,7 @@ export default {
       });
     },
   },
-};
+}; //comment
 </script>
 
 <style>
