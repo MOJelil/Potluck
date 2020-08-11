@@ -1,14 +1,13 @@
 BEGIN TRANSACTION;
-DROP TABLE IF EXISTS user_diet;
+
 DROP TABLE IF EXISTS dietary_restrictions;
+DROP TABLE IF EXISTS potluck;
+DROP TABLE IF EXISTS guests;
+DROP TABLE IF EXISTS dish_potluck;
+DROP TABLE IF EXISTS dish;
 DROP TABLE IF EXISTS gueststable;
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS potluck;
-DROP TABLE IF EXISTS dish;
-DROP TABLE IF EXISTS dish_potluck;
-
-
-
+DROP TABLE IF EXISTS user_diet;
 
 
 CREATE TABLE users (
@@ -31,7 +30,7 @@ INSERT INTO users (firstName, lastName, phone, email,username,password_hash,role
 CREATE TABLE dietary_restrictions (
 	dietary_id 			SERIAL NOT NULL,
 	restriction_name	varchar(50),
-	CONSTRAINT PK_dietary_id PRIMARY KEY (dietary_id)
+	PRIMARY KEY (dietary_id)
 );
 
 INSERT INTO dietary_restrictions(restriction_name) VALUES ('Vegan' ),
@@ -45,11 +44,9 @@ INSERT INTO dietary_restrictions(restriction_name) VALUES ('Vegan' ),
 														  
 CREATE TABLE user_diet (
 	
-	user_id  	 int NOT NULL,    
-	dietary_id   int Not NULL,
-	CONSTRAINT PK_user_diet_id PRIMARY KEY (user_id, dietary_id),
-	CONSTRAINT fk_user_id foreign key (user_id) references users (user_id),
-	CONSTRAINT fk_dietary_id foreign key (dietary_id) references dietary_restrictions (dietary_id)
+	user_id  	 int NOT NULL references users (user_id),    
+	dietary_id   int Not NULL references dietary_restrictions (dietary_id),	
+	PRIMARY KEY (user_id, dietary_id)
 	
 );
 
@@ -59,7 +56,7 @@ CREATE TABLE potluck (
 	location		varchar(50)		NOT NULL,
 	potluck_date	DATE 			NOT NULL,
 	potluck_time	TIME			NOT NULL,
-	user_id 		int				NOT NULL,
+	user_id 		int				NOT NULL references users (user_id),
 	description		varchar(250)	NOT NULL,
 	guests			int,
 	appetizers		int,
@@ -68,16 +65,15 @@ CREATE TABLE potluck (
 	desserts        int,
 	alcohol			int,
 	non_alcohol     int,
-	CONSTRAINT PK_potluck PRIMARY KEY (potluck_id)
+	PRIMARY KEY (potluck_id)
 );
 
 
 CREATE TABLE guests (
 	
-	user_id 		int	    NOT NULL,
-	potluck_id 		int     NOT NULL,
-	CONSTRAINT fk_user_id foreign key (user_id) references users (user_id),
-	CONSTRAINT fk_potluck foreign key (potluck_id) references potluck (potluck_id)
+	user_id 		int	    NOT NULL references users (user_id),
+	potluck_id 		int     NOT NULL references potluck (potluck_id),
+	PRIMARY KEY (user_id, potluck_id)
 );
 
 
@@ -86,23 +82,20 @@ CREATE TABLE dish (
 	name			varchar(50)		NOT NULL,
 	category		varchar(250)	NOT NULL,
 	serving_number	int				NOT NULL,
-	dietary_id		int 			NOT NULL,
-	potluck_id 		int 			NOT NULL,
+	dietary_id		int 			NOT NULL references dietary_restrictions (dietary_id),
+	potluck_id 		int 			NOT NULL references potluck (potluck_id),
 	recipe			varchar(250)	NOT NULL,
 	guests			int,
 	
-	CONSTRAINT PK_dish PRIMARY KEY (dish_id),
-	CONSTRAINT fk_dietary foreign key (dietary_id) references dietary_restrictions (dietary_id),
-	CONSTRAINT fk_potluck foreign key (potluck_id) references potluck (potluck_id)
+	PRIMARY KEY (dish_id)
 );
 
 
 CREATE TABLE dish_potluck (
 	
-	dish_id 		int	    NOT NULL,
-	potluck_id 		int     NOT NULL,
-	CONSTRAINT fk_dish foreign key (dish_id) references dish (dish_id),
-	CONSTRAINT fk_potluck foreign key (potluck_id) references potluck (potluck_id)
+	dish_id 		int	    NOT NULL references dish (dish_id),
+	potluck_id 		int     NOT NULL references potluck (potluck_id),
+	PRIMARY KEY (dish_id, potluck_id)
 );
 
 

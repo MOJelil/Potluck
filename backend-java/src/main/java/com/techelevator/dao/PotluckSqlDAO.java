@@ -9,6 +9,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Service;
 
 import com.techelevator.model.CreatePotluckDTO;
+import com.techelevator.model.Guest;
 import com.techelevator.model.Potluck;
 
 @Service
@@ -85,6 +86,23 @@ public class PotluckSqlDAO implements PotluckDAO {
 		}
 		return potluckUpdated;
 
+	}
+
+	@Override
+	public boolean addGuests(Guest newGuest) {
+		boolean guestCreated = false;
+		String sql = "INSERT INTO guests (user_id, potluck_id) VALUES (?,?)";
+		int[] guest = newGuest.getGuests();
+
+		try {
+			for (int i = 0; i < guest.length; i++) {
+				int count = jdbcTemplate.update(sql, guest[i], newGuest.getPotluck_id());
+				guestCreated = (count == 1);
+			}
+		} catch (DataAccessException e) {
+			System.out.print(e);
+		}
+		return guestCreated;
 	}
 
 	private Potluck mapRowToPotluck(SqlRowSet rs) {

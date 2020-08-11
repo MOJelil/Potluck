@@ -38,11 +38,11 @@
         
         <div>Date</div>
         <input type="date" v-model="potluck.potluck_date" class="form-field" id="date"/>
-
+        
 
         
         <div>Time</div>
-        <input type ="text" v-model="potluck.potluck_time"  class="form-field" />
+        <input type ="time" v-model="potluck.potluck_time"  class="form-field" />
         
 
         <div>Description</div>
@@ -95,7 +95,7 @@
 
 
   <div class="slider-labels"> Alcoholic Beverages </div> 
-       <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.alcohol"/> 
+       <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.alcohl" /> 
       <input type="number" v-model="potluck.alcohol" class="field"/>
 
 
@@ -123,6 +123,7 @@ export default {
  
   data() {
     return {
+      
       potluck: {
         username: "",
         name: "",
