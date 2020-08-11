@@ -18,7 +18,7 @@
 <script>
 
 export default {
-name: "topic-details",
+name: "potluck-details",
 props: {
 potluck: Object,
 },

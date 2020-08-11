@@ -71,7 +71,7 @@ public class PotluckSqlDAO implements PotluckDAO {
 	@Override
 	public boolean update(Potluck potluck, int potluck_id) {
 		boolean potluckUpdated = false;
-		String sql = "UPDATE potluck SET name = ?, location = ?, date_created = ?, potluck_time = ?, "
+		String sql = "UPDATE potluck SET name = ?, location = ?, potluck_date = ?, potluck_time = ?, "
 				+ "description = ?, guests = ?, appetizers = ?, entrees = ?, side_dishes = ?, desserts = ?, alcohol = ?, non_alcohol = ? WHERE potluck_id = ?";
 
 		try {

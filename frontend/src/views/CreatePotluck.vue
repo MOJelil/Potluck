@@ -1,9 +1,6 @@
 <template>
 <div>
   <div class="nav-box">
-    <head>
-      <meta name="viewport" content="width=device-width" />
-    </head>
     <div class="nav-container">
       <span class="decor"></span>
       <nav>
@@ -50,7 +47,9 @@
 
         <div>Description</div>
        
-        <input type="text" v-model="potluck.description" placeholder=" " class="form-field" id="description"/>
+        <textarea cols="50" rows="10" v-model="potluck.description" class="form-field" id="description">
+      
+        </textarea>
        
         
     
@@ -128,7 +127,7 @@ export default {
         username: "",
         name: "",
         location: "",
-        date_created: "",
+        potluck_date: "",
         potluck_time: "",
         description: "",
         guests: "",
@@ -183,7 +182,7 @@ export default {
   background-color: rgba(245, 245, 245, 0.575);
   padding-top: 5px;
   width: 350px;
-  height: 920px;
+  height: 960px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
@@ -200,34 +199,32 @@ export default {
   margin-top: 5px;
 }
 .form-field {
+  width: 100%;
   margin-bottom: 5px;
 }
 #field {
   margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
 }
 .slider-labels {
   text-align: left;
 }
 .guest-slider {
   width: 200px;
- 
 }
 .sliders {
   width: 100px;
-  
 }
+
 .field {
   width: 30px;
 }
 #description {
  width: 100%;
- padding: 40px;
- box-sizing: border-box;
+height: 8%;
 }
-#date {
-  width: 98%
-  
-}
+
 
 .form-create {
   display: flex;
@@ -251,9 +248,9 @@ export default {
 
 .decor {
   background: #d2b48c;
-  background: -webkit-linear-gradient(left, #f6e3bd 50%, #d2b48c 50%);
-  background: -moz-linear-gradient(left, #f6e3bd 50%, #d2b48c 50%);
-  background: -o-linear-gradient(left, #f6e3bd 50%, #d2b48c 50%);
+  background: -webkit-linear-gradient(left, #d2b48c 50%, #d2b48c 50%);
+  background: -moz-linear-gradient(left, #d2b48c 50%, #d2b48c 50%);
+  background: -o-linear-gradient(left, #d2b48c 50%, #d2b48c 50%);
   background: linear-gradient(left, white 50%, #d2b48c 50%);
   background-size: 50px 25%;
   box-shadow: 2px 2px 3px rgba(245, 245, 245, 0.788);
@@ -305,97 +302,29 @@ ul.primary li:last-child a {
   font-weight: bold;
   text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
 }
-/*
+
 input[type=range] {
     -webkit-appearance: none;
-    display: block;
-    background: #3e3e3f;
-    background-image: -webkit-gradient(linear, 20% 0%, 20% 100%, color-stop(0%, #ADD8E6), color-stop(100%, #ADD8E6));
-    background-image: -webkit-linear-gradient(left, #ADD8E6 0%,#ADD8E6 100%);
-    background-image: -moz-linear-gradient(left, #ADD8E6 0%, #ADD8E6 100%);
-    background-image: -o-linear-gradient(to right, #ADD8E6 0%,#ADD8E6 100%);
-    background-image: linear-gradient(to right, #ADD8E6 0%,#ADD8E6 100%);
+    background: #ad6416;
+    background-image: -webkit-gradient(linear, 20% 0%, 20% 100%, color-stop(0%, #d2b48c), color-stop(100%, #f6e3bd));
+    background-image: -webkit-linear-gradient(left, #d2b48c 0%,#f6e3bd 100%);
+    background-image: -moz-linear-gradient(left, #d2b48c 0%, #f6e3bd 100%);
+    background-image: -o-linear-gradient(to right, #d2b48c 0%,#f6e3bd 100%);
+    background-image: linear-gradient(to right, #d2b48c 0%,#f6e3bd 100%);
     background-repeat: no-repeat;
-}
- 
-input[type=range]:focus {
-  outline: none;
-}
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 4px;
-  cursor: pointer;
-  box-shadow: none;
-  background: transparent;
-  border-radius: 0px;
-  border: none;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    box-shadow: 2px 2px 3px rgba(136, 136, 136, 0.767);
 }
 input[type=range]::-webkit-slider-thumb {
-  box-shadow: none;
-  border: 4px solid #ADD8E6;
-  height: 16px;
+  box-shadow: 2px 2px 3px rgba(136, 136, 136, 0.767);
+  border: 4px solid whitesmoke;
+  height: 14px;
   width: 16px;
-  border-radius: 2px;
-  background: #3e3e3f;
+  background: whitesmoke;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -6px;
+  border-radius: 1em;
 }
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: transparent;
-}
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 4px;
-  cursor: pointer;
-  box-shadow: none;
-  background: transparent;
-  border-radius: 0px;
-  border: none;
-}
-input[type=range]::-moz-range-thumb {
-  box-shadow: none;
-  border: 4px solid #ADD8E6;
-  height: 16px;
-  width: 16px;
-  border-radius: 2px;
-  background: #ffffff;
-  cursor: pointer;
-}
-input[type=range]::-ms-track {
-  width: 100%;
-  height: 4px;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-input[type=range]::-ms-fill-lower {
-  background: transparent;
-  border: none;
-  border-radius: 0px;
-  box-shadow: none;
-}
-input[type=range]::-ms-fill-upper {
-  background: transparent;
-  border: none;
-  border-radius: 0px;
-  box-shadow: none;
-}
-input[type=range]::-ms-thumb {
-  box-shadow: none;
-  border: 4px solid #ADD8E6;
-  height: 16px;
-  width: 16px;
-  border-radius: 2px;
-  background: #ffffff;
-  cursor: pointer;
-  height: 4px;
-}
-input[type=range]:focus::-ms-fill-lower {
-  background: transparent;
-}
-input[type=range]:focus::-ms-fill-upper {
-  background: transparent;
-} */
+
 </style>
