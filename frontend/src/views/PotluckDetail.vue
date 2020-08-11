@@ -3,6 +3,11 @@
   <div class="potluck-detail-container">
   <div class="potlucks">
     <potluck-details v-bind:potluck="displayedPotluck" />
+    <router-link
+                v-bind:to="{ name: 'bring-dish', params: { id: displayedPotluck.potluck_id } }"
+              >Sign Up To Bring Dish</router-link>
+
+              
   </div>
   </div>
   </div>
@@ -20,7 +25,7 @@ export default {
         username: "",
         name: "",
         location: "",
-        date_created: "",
+        potluck_date: "",
         potluck_time: "",
         description: "",
         guests: "",

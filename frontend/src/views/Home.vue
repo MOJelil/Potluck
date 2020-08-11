@@ -1,29 +1,30 @@
 <template>
 <body class="home">
   <div>
-  <div class="nav-box">
-<div class="nav-container">
-<span class="decor"></span>
-<nav>
-  <ul class="primary">
-    <li>
-      <router-link to="/">My Potlucks</router-link>
-    </li>
-    <li>
-      <router-link to="/potluck">Create Potluck</router-link>
-    </li>
-    <li>
-      <router-link to="/logout">Logout</router-link>
-    </li>
-  </ul>
-</nav>
-</div>
+    <div class="nav-box">
+      <div class="nav-container">
+        <span class="decor"></span>
+        <nav>
+          <ul class="primary">
+            <li>
+              <router-link to="/">My Potlucks</router-link>
+            </li>
+            <li>
+              <router-link to="/potluck">Create Potluck</router-link>
+            </li>
+            <li>
+              <router-link to="/logout">Logout</router-link>
+            </li>
+          </ul>
+        </nav>
       </div>
-
-     <div class="page-name-home">
-      <header class="head-home">Home</header>
     </div>
-    <div class="potluck-user-flexbox">
+  </div>
+
+  <div class="page-name-home">
+    <header class="head-home">Home</header>
+  </div>
+  <div class="potluck-user-flexbox">
     <div class="user-details-box">
       <div class="user-details-container">
         <h2>My Profile</h2>
@@ -35,42 +36,42 @@
           <div>
             <h2>My Potlucks</h2>
           </div>
-          <div class="potluck-name">
-            <div v-for="currentPotluck in allPotlucks" v-bind:key="currentPotluck.potluck_id" v-bind:potluck="currentPotluck">
-              
-            <router-link v-bind:to="{ name: 'potluck-detail', params: { id: currentPotluck.potluck_id } }">{{ currentPotluck.name }} </router-link>
-              
-              <div class="edit-button">
-              <router-link :to="{ name: 'update-potluck', params: {id: currentPotluck.potluck_id} }">Edit</router-link>
-              </div>
-              </div>
+          <div
+            v-for="currentPotluck in allPotlucks"
+            v-bind:key="currentPotluck.potluck_id"
+            v-bind:potluck="currentPotluck"
+          >
+            <router-link
+              v-bind:to="{ name: 'potluck-detail', params: { id: currentPotluck.potluck_id } }"
+            >{{ currentPotluck.name }}</router-link>
+            <router-link
+              :to="{ name: 'update-potluck', params: {id: currentPotluck.potluck_id} }"
+            >Edit</router-link>
           </div>
         </span>
-        </div>
+      </div>
     </div>
-   </div>
   </div>
-  </body>
+</body>
 </template>
 
 <script>
-
 import Potluck from "@/services/Potluck";
 
 export default {
   name: "home",
   data() {
     return {
-      allPotlucks: []
-    }
+      allPotlucks: [],
+    };
   },
   created() {
-    Potluck.list().then(response => this.allPotlucks = response.data);
-  }
+    Potluck.list().then((response) => (this.allPotlucks = response.data));
+  },
 };
 </script>
 <style>
- body.home {
+body.home {
   background: url("../images/wooden-bg.jpg") no-repeat center fixed;
   background-size: cover;
   font-family: "Ubuntu", Gadget, sans-serif;
@@ -79,13 +80,13 @@ export default {
 
 h2 {
   text-align: center;
-   color: dimgray;
-  text-shadow: 2px 4px 4px rgba(0,0,0,0.2),
-                 0px -5px 10px rgba(255,255,255,0.15);
+  color: dimgray;
+  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2),
+    0px -5px 10px rgba(255, 255, 255, 0.15);
 }
 
 .page-name-home {
-   position: absolute;
+  position: absolute;
   left: 25px;
   top: 10px;
   font-size: 45px;
@@ -93,50 +94,43 @@ h2 {
 .head-home {
   color: whitesmoke;
   font-weight: bold;
-  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
 }
-
 .potluck-user-flexbox {
   display: flex;
   justify-content: space-evenly;
 }
 .potluck-details-container {
- 
   background-color: rgba(245, 245, 245, 0.575);
   padding-top: 5px;
   width: 400px;
   height: 715px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
- 
 }
 
 .potluck-details-box {
-  
   margin-top: 20px;
   margin-right: 25px;
   margin-bottom: 50px;
 }
 .potluck-name {
- text-align: left;
+  text-align: left;
 }
 .edit-button {
   text-align: right;
 }
 
 .user-details-container {
-
   background-color: rgba(245, 245, 245, 0.575);
   padding-top: 5px;
   width: 400px;
   height: 715px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
- 
 }
 
 .user-details-box {
- 
   margin-top: 20px;
   margin-right: 25px;
   margin-bottom: 50px;

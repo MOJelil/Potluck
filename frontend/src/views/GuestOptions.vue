@@ -12,7 +12,7 @@
       <router-link to="/">My Potlucks</router-link>
     </li>
     <li>
-      <router-link to="/createpotluck">Create Potluck</router-link>
+      <router-link to="/potluck">Create Potluck</router-link>
     </li>
     <li>
       <router-link to="/logout">Logout</router-link>

@@ -8,6 +8,8 @@ import store from '../store/index'
 import CreatePotluck from '../views/CreatePotluck.vue'
 import PotluckDetail from '../views/PotluckDetail.vue'
 import UpdatePotluck from '../views/UpdatePotluck.vue'
+import BringDish from '../views/BringDish.vue'
+
 
 Vue.use(Router)
 
@@ -80,6 +82,15 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: '/potluck/:id/dish',
+      name: 'bring-dish',
+      component: BringDish,
+      meta: {
+        requiresAuth: true
+      }
+    },
+
   ]
 })
 

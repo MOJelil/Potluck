@@ -25,7 +25,7 @@ export default new Vuex.Store({
       potluck_id: "",
       name: "",
       location: "",
-      date_created: "",
+      potluck_date: "",
       potluck_time: "",
       description: "",
       guests: "",
