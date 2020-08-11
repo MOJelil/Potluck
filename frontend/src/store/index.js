@@ -36,6 +36,19 @@ export default new Vuex.Store({
       non_alcohol: "",
       alcohol: "",
     },
+    dish: {
+      dish_name: "",
+      category: "",
+      servings: "",
+      dietary_id: "",
+      potluck_id: "",
+      recipe: "",
+    },
+    users: {
+      username: "",
+      firstname: "",
+      lastname: "",
+        }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -60,6 +73,11 @@ export default new Vuex.Store({
     SET_ACTIVE_POTLUCK(state, data) {
       state.potluck = data;
     },
-   
+    SET_DISH(state, data) {
+      state.dish = data;
+    },
+    SET_USERS(state, data) {
+      state.users = data;
+    }
   }
 })

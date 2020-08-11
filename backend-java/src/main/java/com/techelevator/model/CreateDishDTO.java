@@ -3,30 +3,16 @@ package com.techelevator.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dish {
-
+public class CreateDishDTO {
 	private String dish_name;
 	private String category;
 	private int servings;
 	private int potluck_id;
 	private String recipe;
 	private int user_id;
+
 	private List<String> diet = new ArrayList<>();
-
-	public Dish(String dish_name, String category, int servings, int potluck_id, String recipe,
-			int user_id) {
-		super();
-		this.dish_name = dish_name;
-		this.category = category;
-		this.servings = servings;
-		this.potluck_id = potluck_id;
-		this.recipe = recipe;
-		this.user_id = user_id; 
-	}
 	
-	public Dish(){
-	}
-
 	public String getDish_name() {
 		return dish_name;
 	}
@@ -69,5 +55,4 @@ public class Dish {
 	public void setDiet(List<String> diet) {
 		this.diet = diet;
 	}
-
 }

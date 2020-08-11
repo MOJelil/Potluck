@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-  
+
 });
 
 
@@ -13,7 +13,7 @@ export default {
 
   getPotluck(potluck_id) {
     return axios.get(`/potluck/${potluck_id}`);
-  }, 
+  },
 
   createPotluck(potluck) {
     return axios.post('/potluck', potluck)
@@ -25,6 +25,14 @@ export default {
 
   delete(name) {
     return http.delete(`//${name}`);
+  },
+
+  bringDish(dish) {
+    return axios.post(`/potluck/${dish.potluck_id}/dish`, dish);
+  },
+
+  inviteGuest(potluck_id, guest) {
+    return axios.post(`/potluck/${potluck_id}/guest`, guest);
   }
 
 }

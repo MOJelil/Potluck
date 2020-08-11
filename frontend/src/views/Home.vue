@@ -21,37 +21,48 @@
     </div>
   </div>
 
-  <div class="page-name-home">
-    <header class="head-home">Home</header>
+  <div class="page-name">
+    <header class="head">Home</header>
   </div>
-  <div class="potluck-user-flexbox">
-    <div class="user-details-box">
-      <div class="user-details-container">
-        <h2>My Profile</h2>
-      </div>
-    </div>
-    <div class="potluck-details-box">
-      <div class="potluck-details-container">
+ 
+    <div class="potluck-detail-box">
+      <div class="potluck-detail-container">
         <span class="potlucks">
           <div>
-            <h2>My Potlucks</h2>
+            <h2>Upcoming Events</h2>
           </div>
           <div
             v-for="currentPotluck in allPotlucks"
             v-bind:key="currentPotluck.potluck_id"
-            v-bind:potluck="currentPotluck"
-          >
+            v-bind:potluck="currentPotluck">
+            <div class="potluck-details-container">
+            <div class="potluck-name">
             <router-link
               v-bind:to="{ name: 'potluck-detail', params: { id: currentPotluck.potluck_id } }"
             >{{ currentPotluck.name }}</router-link>
+            </div>
+            <div class="edit-button">
             <router-link
               :to="{ name: 'update-potluck', params: {id: currentPotluck.potluck_id} }"
             >Edit</router-link>
-          </div>
+            </div>
+            <div class="sign-up-button">
+              <router-link
+                v-bind:to="{ name: 'bring-dish', params: { id: currentPotluck.potluck_id } }"
+              >Bring Dish</router-link> 
+            </div>
+            <div class="invite-button">
+              <router-link
+               v-bind:to="{ name: 'invite-guest', params: { id: currentPotluck.potluck_id } }"
+              >Invite Guests</router-link>
+              </div>
+              </div>
+          
+            
+            </div>
         </span>
       </div>
     </div>
-  </div>
 </body>
 </template>
 
@@ -71,68 +82,64 @@ export default {
 };
 </script>
 <style>
-body.home {
-  background: url("../images/wooden-bg.jpg") no-repeat center fixed;
-  background-size: cover;
-  font-family: "Ubuntu", Gadget, sans-serif;
-  margin: 0;
-}
 
 h2 {
   text-align: center;
   color: dimgray;
-  text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2),
+}
+.potluck-detail-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(245, 245, 245, 0.575);
+  padding-top: 5px;
+  width: 625px;
+  height: 400px;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.potluck-detail-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 25px;
+  margin-bottom: 50px;
+}
+
+.potluck-details-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: whitesmoke;
+  border-radius: 1em;
+  width: 575px;
+  margin-bottom: 10px;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2),
     0px -5px 10px rgba(255, 255, 255, 0.15);
 }
-
-.page-name-home {
-  position: absolute;
-  left: 25px;
-  top: 10px;
-  font-size: 45px;
-}
-.head-home {
-  color: whitesmoke;
-  font-weight: bold;
-  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
-}
-.potluck-user-flexbox {
-  display: flex;
-  justify-content: space-evenly;
-}
-.potluck-details-container {
-  background-color: rgba(245, 245, 245, 0.575);
-  padding-top: 5px;
-  width: 400px;
-  height: 715px;
-  border-radius: 1.5em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+ .potluck-name {
+ font-weight: bold;
+ padding-left: 10px;
+ padding-bottom: 7px;
+ padding-top: 7px;
 }
 
-.potluck-details-box {
-  margin-top: 20px;
-  margin-right: 25px;
-  margin-bottom: 50px;
-}
-.potluck-name {
-  text-align: left;
-}
 .edit-button {
-  text-align: right;
+ font-style: oblique;
+ padding-bottom: 7px;
+ padding-top: 7px;
 }
+.sign-up-button {
+font-style: oblique;
+padding-bottom: 7px;
+padding-top: 7px;
+ 
+}
+.invite-button {
+font-style: oblique;
+padding-right: 10px;
+padding-bottom: 7px;
+padding-top: 7px;
+} 
 
-.user-details-container {
-  background-color: rgba(245, 245, 245, 0.575);
-  padding-top: 5px;
-  width: 400px;
-  height: 715px;
-  border-radius: 1.5em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-}
 
-.user-details-box {
-  margin-top: 20px;
-  margin-right: 25px;
-  margin-bottom: 50px;
-}
 </style>

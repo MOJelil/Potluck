@@ -9,7 +9,7 @@ import CreatePotluck from '../views/CreatePotluck.vue'
 import PotluckDetail from '../views/PotluckDetail.vue'
 import UpdatePotluck from '../views/UpdatePotluck.vue'
 import BringDish from '../views/BringDish.vue'
-
+import InviteGuest from '../views/InviteGuest.vue'
 
 Vue.use(Router)
 
@@ -90,6 +90,15 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: '/potluck/:id/guest',
+      name: 'invite-guest',
+      component: InviteGuest,
+      meta: {
+        requiresAuth: true
+      }
+    },
+
 
   ]
 })
