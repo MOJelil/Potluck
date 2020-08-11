@@ -15,7 +15,7 @@
 
         
         <div>Time</div>
-        <input type ="text" v-model="potluck.potluck_time"  class="form-field" />
+        <input type ="time" v-model="potluck.potluck_time"  class="form-field" />
         
 
         <div>Description</div>

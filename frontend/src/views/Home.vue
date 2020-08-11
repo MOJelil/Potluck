@@ -24,12 +24,7 @@
   <div class="page-name-home">
     <header class="head-home">Home</header>
   </div>
-  <div class="potluck-user-flexbox">
-    <div class="user-details-box">
-      <div class="user-details-container">
-        <h2>My Profile</h2>
-      </div>
-    </div>
+
     <div class="potluck-details-box">
       <div class="potluck-details-container">
         <span class="potlucks">
@@ -47,11 +42,14 @@
             <router-link
               :to="{ name: 'update-potluck', params: {id: currentPotluck.potluck_id} }"
             >Edit</router-link>
+
+              <router-link
+                v-bind:to="{ name: 'bring-dish', params: { id: currentPotluck.potluck_id } }"
+              >Sign Up To Bring Dish</router-link> 
           </div>
         </span>
       </div>
     </div>
-  </div>
 </body>
 </template>
 

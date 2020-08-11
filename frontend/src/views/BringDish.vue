@@ -23,8 +23,10 @@
   <div>Name</div>
   <input type="text"/>
 
-  <div>Category</div>
-  <input type="text"/>
+ <div>Category</div>
+  <input type="text"/> 
+
+
 
   <div>Number of Servings</div>
   <input type="text"/>
