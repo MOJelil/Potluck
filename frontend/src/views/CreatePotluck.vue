@@ -38,7 +38,7 @@
         
         <div>Date</div>
         <input type="date" v-model="potluck.potluck_date" class="form-field" id="date"/>
-
+        
 
         
         <div>Time</div>
@@ -123,6 +123,7 @@ export default {
  
   data() {
     return {
+      
       potluck: {
         username: "",
         name: "",

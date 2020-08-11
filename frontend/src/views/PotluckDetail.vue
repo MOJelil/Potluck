@@ -6,6 +6,9 @@
     <router-link
                 v-bind:to="{ name: 'bring-dish', params: { id: displayedPotluck.potluck_id } }"
               >Sign Up To Bring Dish</router-link>
+                  <router-link
+                v-bind:to="{ name: 'invite-guest', params: { id: displayedPotluck.potluck_id } }"
+              >Invite guests</router-link>
 
               
   </div>

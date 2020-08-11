@@ -23,10 +23,18 @@
   <div>Name</div>
   <input type="text"/>
 
- <div>Category</div>
-  <input type="text"/> 
-
-
+ <!-- <div>Category</div>
+  <input type="text"/>  -->
+  <div>Category</div>
+  <select v-model="selected">
+  <option disabled value="">Please select category</option>
+  <option>Appetizer</option>
+  <option>Entree</option>
+  <option>Side Dish</option>
+  <option>Desserth</option>
+  <option>Non-Alcoholic Beverage</option>
+  <option>Alcoholic Beverage</option>
+</select>
 
   <div>Number of Servings</div>
   <input type="text"/>
@@ -49,7 +57,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      selected: "",
+    }
+  }
+   
+};
 </script>
 
 <style>
