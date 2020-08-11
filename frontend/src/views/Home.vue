@@ -2,9 +2,6 @@
 <body class="home">
   <div>
   <div class="nav-box">
-      <head>
-  <meta name="viewport" content="width=device-width">
-</head>
 <div class="nav-container">
 <span class="decor"></span>
 <nav>
@@ -38,11 +35,15 @@
           <div>
             <h2>My Potlucks</h2>
           </div>
+          <div class="potluck-name">
             <div v-for="currentPotluck in allPotlucks" v-bind:key="currentPotluck.potluck_id" v-bind:potluck="currentPotluck">
-            <router-link v-bind:to="{ name: 'potluck-detail', params: { id: currentPotluck.potluck_id } }">{{ currentPotluck.name }}</router-link>
-            
+              
+            <router-link v-bind:to="{ name: 'potluck-detail', params: { id: currentPotluck.potluck_id } }">{{ currentPotluck.name }} </router-link>
+              
+              <div class="edit-button">
               <router-link :to="{ name: 'update-potluck', params: {id: currentPotluck.potluck_id} }">Edit</router-link>
-            
+              </div>
+              </div>
           </div>
         </span>
         </div>
@@ -77,6 +78,7 @@ export default {
 }
 
 h2 {
+  text-align: center;
    color: dimgray;
   text-shadow: 2px 4px 4px rgba(0,0,0,0.2),
                  0px -5px 10px rgba(255,255,255,0.15);
@@ -93,25 +95,13 @@ h2 {
   font-weight: bold;
   text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
 }
-.decor {
-  background:#d2b48c;
-  background: -webkit-linear-gradient(left, #f6e3bd 50%,#d2b48c 50%);
-  background: -moz-linear-gradient(left, #f6e3bd 50%, #d2b48c 50%);
-  background: -o-linear-gradient(left, #f6e3bd 50%, #d2b48c 50%);
-  background: linear-gradient(left, white 50%, #d2b48c 50%);
-  background-size: 50px 25%;
-  box-shadow: 2px 2px 3px rgba(245, 245, 245, 0.788);
-  padding: 2px;
-  display: block;
-}
+
 .potluck-user-flexbox {
   display: flex;
   justify-content: space-evenly;
 }
 .potluck-details-container {
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
+ 
   background-color: rgba(245, 245, 245, 0.575);
   padding-top: 5px;
   width: 400px;
@@ -122,15 +112,20 @@ h2 {
 }
 
 .potluck-details-box {
-  display: flex;
-  justify-content: flex-end;
+  
   margin-top: 20px;
   margin-right: 25px;
   margin-bottom: 50px;
 }
+.potluck-name {
+ text-align: left;
+}
+.edit-button {
+  text-align: right;
+}
+
 .user-details-container {
-  display: flex;
-  justify-content: space-around;
+
   background-color: rgba(245, 245, 245, 0.575);
   padding-top: 5px;
   width: 400px;
@@ -141,8 +136,7 @@ h2 {
 }
 
 .user-details-box {
-  display: flex;
-  justify-content: flex-start;
+ 
   margin-top: 20px;
   margin-right: 25px;
   margin-bottom: 50px;

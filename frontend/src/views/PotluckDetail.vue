@@ -1,6 +1,10 @@
 <template>
+<div class="potluck-detail-box">
+  <div class="potluck-detail-container">
   <div class="potlucks">
     <potluck-details v-bind:potluck="displayedPotluck" />
+  </div>
+  </div>
   </div>
 </template>
 
@@ -46,3 +50,23 @@ export default {
   },
 };
 </script>
+<style>
+.potluck-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(245, 245, 245, 0.575);
+  padding-top: 5px;
+  width: 350px;
+  height: 940px;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.potluck-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 25px;
+  margin-bottom: 50px;
+}
+</style>

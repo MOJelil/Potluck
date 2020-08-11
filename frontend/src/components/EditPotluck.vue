@@ -1,55 +1,85 @@
 <template>
-  <form v-on:submit.prevent>
-    <div class="field">
-      <label for="name">Name</label>
-      <input  type="text" v-model="potluck.name" />
-    </div>
-    <div class="field">
-      <label for="location">Location</label>
-      <input type="text" v-model="potluck.location" />
-    </div>
-    <div class="field">
-      <label for="date_created">Date</label>
-      <input type="text" v-model="potluck.date_created" />
-    </div><div class="field">
-      <label for="potluck_time">Time</label>
-      <input type="text" v-model="potluck.potluck_time" />
-    </div>
-    <div class="field">
-      <label for="description">Description</label>
-      <input type="text" v-model="potluck.description" />
-    </div>
-    <div class="field">
-      <label for="guests">Guests</label>
-      <input type="text" v-model="potluck.guests" />
-    </div>
-    <div class="field">
-      <label for="appetizers">Appetizers</label>
-      <input type="text" v-model="potluck.appetizers" />
-    </div>
-    <div class="field">
-      <label for="entrees">Entrees</label>
-      <input type="text" v-model="potluck.entrees" />
-    </div><div class="field">
-      <label for="side_dishes">Side Dishes</label>
-      <input type="text" v-model="potluck.side_dishes" />
-    </div>
-    <div class="field">
-      <label for="desserts">Desserts</label>
-      <input type="text" v-model="potluck.desserts" />
-    </div>
-    <div class="field">
-      <label for="non_alcohol">Non-Alcoholic Beverages</label>
-      <input type="text" v-model="potluck.non_alcohol" />
-    </div>
-    <div class="field">
-      <label for="alcohol">Alcoholic Beverages</label>
-      <input type="text" v-model="potluck.alcohol" />
-    </div>
+
+  <form class="form-update" v-on:submit.prevent>
+    <div>
+       <div>Potluck Name</div>
+        <input v-model="potluck.name" class="form-field" />
+       
+
+        <div>Location</div>
+        <input v-model="potluck.location"  class="form-field" />
+        
+        <div>Date</div>
+        <input type="date" v-model="potluck.potluck_date" class="form-field" id="date"/>
+
+
+        
+        <div>Time</div>
+        <input type ="text" v-model="potluck.potluck_time"  class="form-field" />
+        
+
+        <div>Description</div>
+       
+        <textarea cols="50" rows="10" v-model="potluck.description" class="form-field" id="description">
+      
+        </textarea>
+       
+        
+    
+
+        
+<div class="slider-labels"> Number of Guests </div> 
+ <input class="guest-slider" type="range" min="0" max="50" step="1" v-model="potluck.guests" /> 
+<input type="number" v-model="potluck.guests" class="field" id="field"/>
+
+     
+
+<div class="slider-labels">Appetizers </div>
+     <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.appetizers"/> 
+     <input type="number" v-model="potluck.appetizers" class="field" id="field" /> 
+
+
+
+    <div class="slider-labels">Number of Entrees </div> 
+ <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.entrees"/> 
+ <input type="number" v-model="potluck.entrees" class="field" id="field"/> 
+ 
+
+
+
+   <div class="slider-labels">Side Dishes </div> 
+    <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.side_dishes"/> 
+     <input type="number" v-model="potluck.side_dishes" class="field" id="field"/>
+    
+
+
+
+  <div class="slider-labels"> Desserts </div>
+        <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.desserts"/> 
+        <input type="number" v-model="potluck.desserts" class="field" id="field"/> 
+      
+
+
+
+  <div class="slider-labels"> Non-Alcoholic Beverages </div>
+       <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.non_alcohol"/> 
+       <input type="number" v-model="potluck.non_alcohol" class="field" id="field"/> 
+
+
+
+  <div class="slider-labels"> Alcoholic Beverages </div> 
+       <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.alcohol"/> 
+      <input type="number" v-model="potluck.alcohol" class="field" id="field"/>
+
+
     <div class="actions">
-      <button type="submit" v-on:click.prevent="updatePotluck()">Save Changes</button>
+      <button type="submit" v-on:click.prevent="updatePotluck()"
+      class="gradient-button gradient-button-color"
+      >Save Changes</button>
+    </div>
     </div>
   </form>
+      
 </template>
 
 <script>
@@ -79,4 +109,14 @@ export default {
 </script>
 
 <style>
+.form-update {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  text-align: left;
+  padding-bottom: 10px;
+  width: 80%;
+  margin-top: 20px;
+}
+
 </style>
