@@ -44,6 +44,11 @@ export default new Vuex.Store({
       potluck_id: "",
       recipe: "",
     },
+    users: {
+      username: "",
+      firstname: "",
+      lastname: "",
+        }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -71,5 +76,8 @@ export default new Vuex.Store({
     SET_DISH(state, data) {
       state.dish = data;
     },
+    SET_USERS(state, data) {
+      state.users = data;
+    }
   }
 })

@@ -21,10 +21,8 @@
   </div>
   <div>
     <div>Name</div>
-    <input v-model="dish.dish_name" type="text" />
+    <input v-model="dish.dish_name" type="text" />    
 
-    <!-- <div>Category</div>
-    <input type="text"/>-->
     <div>Category</div>
     <select v-model="dish.category">
       <option disabled value>Please select category</option>
