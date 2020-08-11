@@ -5,6 +5,8 @@ DROP TABLE IF EXISTS gueststable;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS potluck;
 DROP TABLE IF EXISTS dish;
+DROP TABLE IF EXISTS dish_potluck;
+
 
 
 
@@ -85,11 +87,22 @@ CREATE TABLE dish (
 	category		varchar(250)	NOT NULL,
 	serving_number	int				NOT NULL,
 	dietary_id		int 			NOT NULL,
+	potluck_id 		int 			NOT NULL,
 	recipe			varchar(250)	NOT NULL,
 	guests			int,
 	
 	CONSTRAINT PK_dish PRIMARY KEY (dish_id),
-	CONSTRAINT fk_dietary foreign key (dietary_id) references dietary_restrictions (dietary_id)
+	CONSTRAINT fk_dietary foreign key (dietary_id) references dietary_restrictions (dietary_id),
+	CONSTRAINT fk_potluck foreign key (potluck_id) references potluck (potluck_id)
+);
+
+
+CREATE TABLE dish_potluck (
+	
+	dish_id 		int	    NOT NULL,
+	potluck_id 		int     NOT NULL,
+	CONSTRAINT fk_dish foreign key (dish_id) references dish (dish_id),
+	CONSTRAINT fk_potluck foreign key (potluck_id) references potluck (potluck_id)
 );
 
 
