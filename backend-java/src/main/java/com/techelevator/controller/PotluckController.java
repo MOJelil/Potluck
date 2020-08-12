@@ -58,7 +58,6 @@ public class PotluckController {
 	public Potluck getPotluckDetails(@PathVariable("id") int potluck_id) {
 		return potluckDAO.getPotluckDetails(potluck_id);
 	}
-<<<<<<< HEAD
 
 	@RequestMapping(path = "/potluck/{id}", method = RequestMethod.PUT)
 	public void updatePotluckDetails(@Valid @RequestBody Potluck potluck, @PathVariable("id") int potluck_id) {
@@ -70,11 +69,4 @@ public class PotluckController {
 		potluckDAO.addGuests(guest);
 	}
 
-=======
-	
-    @RequestMapping(path = "/potluck/{id}", method = RequestMethod.PUT)
-    public void updatePotluckDetails(@Valid @RequestBody Potluck potluck, @PathVariable("id") int potluck_id) {
-        potluckDAO.update(potluck,potluck_id);
-	}	
->>>>>>> 8c229b51a0d825d4bd3236eeeb06d54aa7a038c6
 }

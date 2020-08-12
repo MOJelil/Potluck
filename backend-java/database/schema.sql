@@ -4,17 +4,17 @@ DROP TABLE IF EXISTS dietary_restrictions;
 DROP TABLE IF EXISTS potluck;
 DROP TABLE IF EXISTS guests;
 DROP TABLE IF EXISTS dish_potluck;
-<<<<<<< HEAD
+
 DROP TABLE IF EXISTS dish;
 DROP TABLE IF EXISTS gueststable;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS user_diet;
-=======
+
 DROP TABLE IF EXISTS dish_restriction;
 
 
 
->>>>>>> 8c229b51a0d825d4bd3236eeeb06d54aa7a038c6
+
 
 
 CREATE TABLE users (
@@ -88,23 +88,18 @@ CREATE TABLE dish (
 	dish_id 		SERIAL 			NOT NULL,
 	dish_name		varchar(50)		NOT NULL,
 	category		varchar(250)	NOT NULL,
-<<<<<<< HEAD
-	serving_number	int				NOT NULL,
-	dietary_id		int 			NOT NULL references dietary_restrictions (dietary_id),
-	potluck_id 		int 			NOT NULL references potluck (potluck_id),
-=======
+
 	servings		int				NOT NULL,
-	potluck_id 		int 			NOT NULL,
->>>>>>> 8c229b51a0d825d4bd3236eeeb06d54aa7a038c6
+	potluck_id 		int 			NOT NULL references potluck (potluck_id),
 	recipe			varchar(250)	NOT NULL,
 	user_id			int,
 	
-<<<<<<< HEAD
-	PRIMARY KEY (dish_id)
-=======
-	CONSTRAINT PK_dish PRIMARY KEY (dish_id),
-	CONSTRAINT fk_potluck foreign key (potluck_id) references potluck (potluck_id)
->>>>>>> 8c229b51a0d825d4bd3236eeeb06d54aa7a038c6
+
+
+
+	PK_dish PRIMARY KEY (dish_id),
+
+
 );
 
 
