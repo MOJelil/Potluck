@@ -11,10 +11,12 @@ public class Dish {
 	private int potluck_id;
 	private String recipe;
 	private int user_id;
+	private String firstname;
+	private String lastname;
 	private List<String> diet = new ArrayList<>();
 
 	public Dish(String dish_name, String category, int servings, int potluck_id, String recipe,
-			int user_id) {
+			int user_id, String firstname, String lastname) {
 		super();
 		this.dish_name = dish_name;
 		this.category = category;
@@ -22,6 +24,8 @@ public class Dish {
 		this.potluck_id = potluck_id;
 		this.recipe = recipe;
 		this.user_id = user_id; 
+		this.firstname = firstname;
+		this.lastname = lastname;
 	}
 	
 	public Dish(){
@@ -68,6 +72,22 @@ public class Dish {
 	}
 	public void setDiet(List<String> diet) {
 		this.diet = diet;
+	}
+
+	public String getfirstname() {
+		return firstname;
+	}
+
+	public void setfirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getlastname() {
+		return lastname;
+	}
+
+	public void setlastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 }

@@ -36,7 +36,7 @@
 
     <div class="slider-labels">Number of Servings</div>
     <input class="sliders" type="range" min="0" max="39" step="1" v-model="dish.servings" />
-    <input type="number" v-model="dish.servings" class="field" id="field" />
+    <input type="number" min="0" max="39" v-model="dish.servings" class="field" id="field" />
 
     <div>Dietary Restrictions [Select all that apply]</div>
     <div v-for="dietRestriction in allDietaryRestrictions" :key="dietRestriction">
@@ -47,7 +47,6 @@
     <div>Recipe (Optional)</div>
     <input v-model="dish.recipe" type="textarea" />
     <br />
-    <input type="file" />
   </div>
 
   <div class="button-position">

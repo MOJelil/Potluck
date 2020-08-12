@@ -10,6 +10,8 @@ public class CreateDishDTO {
 	private int potluck_id;
 	private String recipe;
 	private int user_id;
+	private String firstname;
+	private String lastname;
 
 	private List<String> diet = new ArrayList<>();
 	
@@ -54,5 +56,17 @@ public class CreateDishDTO {
 	}
 	public void setDiet(List<String> diet) {
 		this.diet = diet;
+	}
+	public String getfirstname() {
+		return firstname;
+	}
+	public void setfirstname(String firstname) {
+		this.firstname = firstname;
+	}
+	public String getlastname() {
+		return lastname;
+	}
+	public void setLlastname(String lastname) {
+		this.lastname = lastname;
 	}
 }

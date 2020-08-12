@@ -57,46 +57,46 @@
         
 <div class="slider-labels"> Number of Guests </div> 
  <input class="guest-slider" type="range" min="0" max="50" step="1" v-model="potluck.guests" /> 
-<input type="number" v-model="potluck.guests" class="field" id="field"/>
+<input type="number" min="0" max="50" v-model="potluck.guests" class="field" id="field"/>
 
      
 
 <div class="slider-labels">Appetizers </div>
      <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.appetizers"/> 
-     <input type="number" v-model="potluck.appetizers" class="field" id="field" /> 
+     <input type="number" min="0" max="10" v-model="potluck.appetizers" class="field" id="field" /> 
 
 
 
     <div class="slider-labels">Number of Entrees </div> 
  <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.entrees"/> 
- <input type="number" v-model="potluck.entrees" class="field" id="field"/> 
+ <input type="number" min="0" max="10" v-model="potluck.entrees" class="field" id="field"/> 
  
 
 
 
    <div class="slider-labels">Side Dishes </div> 
     <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.side_dishes"/> 
-     <input type="number" v-model="potluck.side_dishes" class="field" id="field"/>
+     <input type="number" min="0" max="10" v-model="potluck.side_dishes" class="field" id="field"/>
     
 
 
 
   <div class="slider-labels"> Desserts </div>
         <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.desserts"/> 
-        <input type="number" v-model="potluck.desserts" class="field" id="field"/> 
+        <input type="number" min="0" max="10" v-model="potluck.desserts" class="field" id="field"/> 
       
 
 
 
   <div class="slider-labels"> Non-Alcoholic Beverages </div>
        <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.non_alcohol"/> 
-       <input type="number" v-model="potluck.non_alcohol" class="field" id="field"/> 
+       <input type="number" min="0" max="10" v-model="potluck.non_alcohol" class="field" id="field"/> 
 
 
 
   <div class="slider-labels"> Alcoholic Beverages </div> 
        <input class="sliders" type="range" min="0" max="10" step="1" v-model="potluck.alcohol" /> 
-      <input type="number" v-model="potluck.alcohol" class="field"/>
+      <input type="number" min="0" max="10" v-model="potluck.alcohol" class="field"/>
 
 
 

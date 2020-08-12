@@ -97,7 +97,7 @@ CREATE TABLE dish (
 
 
 
-	PK_dish PRIMARY KEY (dish_id),
+	PRIMARY KEY (dish_id)
 
 
 );
