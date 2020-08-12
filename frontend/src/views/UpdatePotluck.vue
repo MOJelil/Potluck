@@ -86,7 +86,7 @@ export default {
   background-color: rgba(245, 245, 245, 0.575);
   padding-top: 5px;
   width: 350px;
-  height: 905px;
+  height: 890px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
@@ -97,4 +97,5 @@ export default {
   margin-right: 25px;
   margin-bottom: 50px;
 }
+
 </style>

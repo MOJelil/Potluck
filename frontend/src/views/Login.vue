@@ -52,8 +52,8 @@
         required
       />
       
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      
+      <router-link class="bottom-margin" :to="{ name: 'register' }">Need an account?</router-link>
+    
       <div>
         <button type="submit" class="gradient-button gradient-button-color">Continue</button>
       </div>
@@ -137,7 +137,7 @@ body {
   background-color: rgba(245, 245, 245, 0.575);
   justify-content: space-around;
   width: 300px;
-  height: 300px;
+  height: 310px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);  
 }
@@ -149,13 +149,13 @@ body {
 }
 
 .gradient-button {
-  margin: 20px auto;
+  margin: 15px auto;
   font-family: "Ubuntu", Gadget, sans-serif;
   font-size: 20px;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
   text-transform: uppercase;
-  transition: 0.5s;
+  /* transition: 0.5s; */
   background-size: 200% auto;
   color: black;
   box-shadow: 0 0 20px #eee;
@@ -163,7 +163,7 @@ body {
   border-color: #ffffff;
   width: 200px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* transition: all 0.3s cubic-bezier(0.20, 0.8, 0.20, 1); */
   cursor: pointer;
   display: block;
   border-radius: 25px;
@@ -194,4 +194,8 @@ body {
   font-weight: bold;
   margin-top: 10px;
 }
+.bottom-margin {
+  margin-bottom: 10px;
+}
+
 </style>

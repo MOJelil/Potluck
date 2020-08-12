@@ -87,7 +87,7 @@
             <input type="checkbox" v-model="user.diet" :value="dietRestriction" />
             <label>{{ dietRestriction }}</label>
           </div>
-          <router-link :to="{ name: 'login' }">Have an account?</router-link>
+          <router-link class="bottom-margin" :to="{ name: 'login' }">Have an account?</router-link>
           <div>
             <button type="submit" class="gradient-button gradient-button-color">Create Account</button>
           </div>
@@ -171,7 +171,7 @@ body {
   background-color: rgba(245, 245, 245, 0.575);
   justify-content: space-around;
   width: 300px;
-  height: 740px;
+  height: 750px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   padding-bottom: 10px;
@@ -226,4 +226,5 @@ body {
 .form-control {
   margin-bottom: 5px;
 }
+
 </style>

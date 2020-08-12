@@ -35,7 +35,7 @@
             v-for="currentPotluck in allPotlucks"
             v-bind:key="currentPotluck.potluck_id"
             v-bind:potluck="currentPotluck">
-            <div class="potluck-details-container">
+            <div class="potluck-actions-container">
             <div class="potluck-name">
             <router-link
               v-bind:to="{ name: 'potluck-detail', params: { id: currentPotluck.potluck_id } }"
@@ -49,7 +49,7 @@
             <div class="sign-up-button">
               <router-link
                 v-bind:to="{ name: 'bring-dish', params: { id: currentPotluck.potluck_id } }"
-              >Bring Dish</router-link> 
+              >Bring a Dish</router-link> 
             </div>
             <div class="invite-button">
               <router-link
@@ -93,7 +93,7 @@ h2 {
   background-color: rgba(245, 245, 245, 0.575);
   padding-top: 5px;
   width: 625px;
-  height: 400px;
+  height: 500px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
@@ -105,7 +105,7 @@ h2 {
   margin-bottom: 50px;
 }
 
-.potluck-details-container {
+.potluck-actions-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -140,6 +140,5 @@ padding-right: 10px;
 padding-bottom: 7px;
 padding-top: 7px;
 } 
-
 
 </style>
