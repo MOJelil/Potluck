@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import Potluck from "@/services/Potluck";
+import PotluckService from "@/services/Potluck";
 
 export default {
   name: "home",
@@ -77,7 +77,7 @@ export default {
     };
   },
   created() {
-    Potluck.list().then((response) => (this.allPotlucks = response.data));
+    PotluckService.list().then((response) => (this.allPotlucks = response.data));
   },
 };
 </script>

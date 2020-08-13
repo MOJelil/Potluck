@@ -25,32 +25,51 @@
     <div class="detail-box">
       <div class="detail-container">
         <div class="detail-items">
-          <potluck-details v-bind:potluck="displayedPotluck" />
+          <div class="potluck-details">
+            <h1>{{ displayedPotluck.name }}</h1>
+            <h2>Location: {{ displayedPotluck.location }}</h2>
+            <h2>Date: {{displayedPotluck.potluck_date }}</h2>
+            <h2>Time: {{ displayedPotluck.potluck_time }}</h2>
+            <h2>Decription: {{displayedPotluck.description }}</h2>
+            <h2>Guests({{ displayedPotluck.guests }}):</h2>
+            <h2>Appetizers({{ displayedPotluck.appetizers }}):</h2>
+            <dish-list v-bind:allDishes="dishDetails" selectedCategory="Appetizer" />
+            <h2>Entrees({{ displayedPotluck.entrees }}):</h2>
+            <dish-list v-bind:allDishes="dishDetails" selectedCategory="Entree" />
+            <h2>Side Dishes({{ displayedPotluck.side_dishes }}):</h2>
+            <dish-list v-bind:allDishes="dishDetails" selectedCategory="Side Dish" />
+            <h2>Desserts({{ displayedPotluck.desserts }}):</h2>
+            <dish-list v-bind:allDishes="dishDetails" selectedCategory="Dessert" />
+            <h2>Beverages({{ displayedPotluck.non_alcohol }}):</h2>
+            <dish-list v-bind:allDishes="dishDetails" selectedCategory="Non-Alcoholic Beverage" />
+            <h2>Alcohol({{ displayedPotluck.alcohol }}):</h2>
+            <dish-list v-bind:allDishes="dishDetails" selectedCategory="Alcoholic Beverage" />
+          </div>
         </div>
       </div>
     </div>
     <div class="button-box">
-    <div class="button-container">
-      <div id="bring">
-      <router-link
-        v-bind:to="{ name: 'bring-dish', params: { id: displayedPotluck.potluck_id } }"
-      >Bring a Dish</router-link>
-      </div>
+      <div class="button-container">
+        <div id="bring">
+          <router-link
+            v-bind:to="{ name: 'bring-dish', params: { id: displayedPotluck.potluck_id } }"
+          >Bring a Dish</router-link>
+        </div>
 
-      <div id="invite">
-      <router-link
-        v-bind:to="{ name: 'invite-guest', params: { id: displayedPotluck.potluck_id } }"
-      >Invite guests</router-link>
+        <div id="invite">
+          <router-link
+            v-bind:to="{ name: 'invite-guest', params: { id: displayedPotluck.potluck_id } }"
+          >Invite guests</router-link>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </body>
 </template>
 
 <script>
-import PotluckDetails from "@/components/PotluckDetails.vue";
 import PotluckService from "@/services/Potluck.js";
+import DishList from "@/components/DishList.vue";
 
 export default {
   name: "Potlucks",
@@ -71,10 +90,13 @@ export default {
         non_alcohol: "",
         alcohol: "",
       },
-    };
+      dishDetails: []
+      
+    }
   },
   components: {
-    PotluckDetails,
+    
+    DishList
   },
   created() {
     PotluckService.getPotluck(this.$route.params.id)
@@ -86,7 +108,9 @@ export default {
           this.$router.push("/not-found");
         }
       });
+        PotluckService.getDish(this.$route.params.id).then((response) => (this.dishDetails = response.data));
   },
+
 };
 </script>
 <style>

@@ -36,20 +36,14 @@ export default new Vuex.Store({
       non_alcohol: "",
       alcohol: "",
     },
-    dish: {
-      dish_name: "",
-      category: "",
-      servings: "",
-      dietary_id: "",
-      potluck_id: "",
-      recipe: "",
-    },
+    dish: [],
     users: {
       username: "",
       firstname: "",
       lastname: "",
         }
   },
+
   mutations: {
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
