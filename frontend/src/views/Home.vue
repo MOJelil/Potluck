@@ -121,6 +121,7 @@ h2 {
  padding-left: 10px;
  padding-bottom: 7px;
  padding-top: 7px;
+ flex-basis: 13em;
 }
 
 .edit-button {
@@ -132,7 +133,6 @@ h2 {
 font-style: oblique;
 padding-bottom: 7px;
 padding-top: 7px;
- 
 }
 .invite-button {
 font-style: oblique;
