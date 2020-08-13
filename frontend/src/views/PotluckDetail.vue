@@ -1,6 +1,8 @@
 <template>
 
 <div class="details">
+      
+         
   <div>
     <div class="nav-box">
       <div class="nav-container">
@@ -20,8 +22,11 @@
         </nav>
       </div>
     </div>
+    
     <div class="page-name-details">
+      
       <header class="head">Potluck Details</header>
+       <a name="top"></a>
     </div>
      <div class="button-box">
       <div class="button-container">
@@ -75,10 +80,15 @@
           <dish-list v-bind:allDishes="dishDetails" selectedCategory="Non-Alcoholic Beverage" />
            <h3>Alcohol({{ displayedPotluck.alcohol }}):</h3>
            <dish-list v-bind:allDishes="dishDetails" selectedCategory="Alcoholic Beverage" />
+            <a href="#top">Back to top</a>
+    
         </div>
+      
       </div>
     </div>
   </div>
+         
+   
 </div>
 
 </template>
@@ -165,6 +175,7 @@ overflow: auto;
   display: flex;
   flex-direction: row;
   margin-bottom: -25px;
+  
 }
 .category-1 {
   color: black;
@@ -197,7 +208,7 @@ overflow: auto;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  text-align: left;
+  text-align: center;
   padding-top: 5px;
   background-color: rgba(245, 245, 245, 0.541);
   border-radius: 1.5em;
@@ -242,4 +253,5 @@ overflow: auto;
   padding-top: 10px;
   font-size: 20px;
 }
+
 </style>

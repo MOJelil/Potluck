@@ -1,7 +1,10 @@
 <template>
 
   <div>
+                
+
     <div class="nav-box">
+ 
       <div class="nav-container">
         <span class="decor"></span>
         <nav>
@@ -41,7 +44,7 @@
 
           <div class="slider-labels"  id="top-margin" >Number of Servings</div>
           <input class="sliders" type="range" min="0" max="15" step="1" v-model="dish.servings" />
-          <input type="number" v-model="dish.servings" class="field" id="field" />
+          <input type="number" min="0" max="15" step="1" v-model="dish.servings" class="field" id="field" />
 
           <div id="top-margin" >Dietary Restrictions [Select all that apply]</div>
           <div v-for="dietRestriction in allDietaryRestrictions" :key="dietRestriction">
@@ -52,7 +55,8 @@
           <div>Recipe (Optional)</div>
           <input v-model="dish.recipe" type="textarea" />
           <br />
-          <input type="file" />
+         
+          
 
           <div class="button-position">
             <button
@@ -60,9 +64,12 @@
               class="gradient-button gradient-button-color"
               v-on:click="bringDish"
             >Create</button>
+  
           </div>
         </form>
+        
       </div>
+     
     </div>
   </div>
 
@@ -143,4 +150,5 @@ export default {
 #top-margin {
   margin-top: 10px;
 }
+
 </style>
