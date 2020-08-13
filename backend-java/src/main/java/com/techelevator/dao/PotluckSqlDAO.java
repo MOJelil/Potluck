@@ -110,7 +110,7 @@ public class PotluckSqlDAO implements PotluckDAO {
 	@Override
 	public List<Invite> getGuestDetails() {
 		List<Invite> invite = new ArrayList<Invite>();
-		String sql = "SELECT user_id, firstname, lastname, email FROM users";
+		String sql = "SELECT user_id, firstname, lastname, email FROM users WHERE user_id NOT IN (1,2)";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 		while (results.next()) {
