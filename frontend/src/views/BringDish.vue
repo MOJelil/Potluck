@@ -1,5 +1,5 @@
 <template>
-<body class="bring-dish">
+
   <div>
     <div class="nav-box">
       <div class="nav-container">
@@ -65,7 +65,7 @@
       </div>
     </div>
   </div>
-</body>
+
 </template>
 
 <script>

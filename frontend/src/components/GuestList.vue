@@ -1,12 +1,12 @@
 <template>
   <div class="guest-list">
     <!-- <h1>{{ this.$route.potluck.name }}</h1> -->
-    <div v-for="user in users" :key="user.user_id">
+    <div class="user-info" v-for="user in users" :key="user.user_id">
    
-    <input type="checkbox" v-model="invitedGuests" :value="user"/>
-    <label>Name: {{ user.firstName }}</label>
-    <label>Last Name: {{ user.lastName }}</label>
-     <label>Email: {{ user.email }}</label>
+    <div class="user-details-row">
+   <div class="name-check-row"> <input type="checkbox" v-model="invitedGuests" :value="user"/>  <label>Name: {{ user.firstName }} {{ user.lastName }}</label> </div>
+    
+     <label>Email: {{ user.email }}</label> </div>
     </div>
     <button
             type="submit"
@@ -44,4 +44,31 @@ methods: {
 </script>
 
 <style>
+.guest-list {
+  /* padding-right: 10px;
+  padding-left: 25px; */
+  padding-bottom: 10px;
+  width: 480px;
+}
+.user-info {
+  margin-bottom: 10px;
+}
+.user-details-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: whitesmoke;
+  border-radius: 1em;
+   margin-bottom: 10px;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2),
+    0px -5px 10px rgba(255, 255, 255, 0.15);
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.name-check-row {
+  display: flex;
+  flex-direction: row;
+}
 </style>

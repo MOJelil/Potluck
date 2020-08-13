@@ -1,4 +1,5 @@
 <template>
+
 <div class="details">
   <div>
     <div class="nav-box">
@@ -79,6 +80,7 @@
     </div>
   </div>
 </div>
+
 </template>
 
 <script>
@@ -128,9 +130,9 @@ export default {
 </script>
 <style>
 .details {
-  background: url("../images/wooden-bg.jpg") no-repeat center fixed;
-  height: 100%;
-  overflow: auto;
+background: url("../images/wooden-bg.jpg") no-repeat center fixed;
+height: 100%;
+overflow: auto;
 }
 
 .detail-container {
@@ -205,8 +207,8 @@ export default {
   margin-right: 25px;
   padding-left: 15px;
   padding-right: 15px;
-
-  
+  margin-bottom: 25px;
+  padding-bottom: 15px;
 }
 
 .button-container {
