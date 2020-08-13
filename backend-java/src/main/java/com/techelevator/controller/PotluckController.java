@@ -20,6 +20,7 @@ import com.techelevator.dao.PotluckDAO;
 import com.techelevator.dao.UserDAO;
 import com.techelevator.model.CreatePotluckDTO;
 import com.techelevator.model.Guest;
+import com.techelevator.model.Invite;
 import com.techelevator.model.Potluck;
 
 @PreAuthorize("isAuthenticated()")
@@ -67,6 +68,11 @@ public class PotluckController {
 	@RequestMapping(path = "/potluck/guest", method = RequestMethod.POST)
 	public void updateGuestkDetails(@Valid @RequestBody Guest guest) {
 		potluckDAO.addGuests(guest);
+	}
+
+	@RequestMapping(value = "/potluck/guest", method = RequestMethod.GET)
+	public List<Invite> getGuestDetails() {
+		return potluckDAO.getGuestDetails();
 	}
 
 }

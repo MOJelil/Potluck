@@ -4,12 +4,10 @@ DROP TABLE IF EXISTS dietary_restrictions;
 DROP TABLE IF EXISTS potluck;
 DROP TABLE IF EXISTS guests;
 DROP TABLE IF EXISTS dish_potluck;
-
 DROP TABLE IF EXISTS dish;
 DROP TABLE IF EXISTS gueststable;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS user_diet;
-
 DROP TABLE IF EXISTS dish_restriction;
 
 
@@ -49,12 +47,10 @@ INSERT INTO dietary_restrictions(restriction_name) VALUES ('Vegan' ),
 														  ('Kosher'),
 														  ('Shellfish Allergy');
 														  
-CREATE TABLE user_diet (
-	
+CREATE TABLE user_diet (	
 	user_id  	 int NOT NULL references users (user_id),    
 	dietary_id   int Not NULL references dietary_restrictions (dietary_id),	
-	PRIMARY KEY (user_id, dietary_id)
-	
+	PRIMARY KEY (user_id, dietary_id)	
 );
 
 CREATE TABLE potluck (
@@ -76,8 +72,7 @@ CREATE TABLE potluck (
 );
 
 
-CREATE TABLE guests (
-	
+CREATE TABLE guests (	
 	user_id 		int	    NOT NULL references users (user_id),
 	potluck_id 		int     NOT NULL references potluck (potluck_id),
 	PRIMARY KEY (user_id, potluck_id)
@@ -88,34 +83,25 @@ CREATE TABLE dish (
 	dish_id 		SERIAL 			NOT NULL,
 	dish_name		varchar(50)		NOT NULL,
 	category		varchar(250)	NOT NULL,
-
 	servings		int				NOT NULL,
 	potluck_id 		int 			NOT NULL references potluck (potluck_id),
 	recipe			varchar(250)	NOT NULL,
 	user_id			int,
-	
-
-
-
 	PRIMARY KEY (dish_id)
-
 
 );
 
 
-CREATE TABLE dish_potluck (
-	
+CREATE TABLE dish_potluck (	
 	dish_id 		int	    NOT NULL references dish (dish_id),
 	potluck_id 		int     NOT NULL references potluck (potluck_id),
 	PRIMARY KEY (dish_id, potluck_id)
 );
 
 CREATE TABLE dish_restriction (
-	dish_id  	 	int 	NOT NULL,    
-	dietary_id   	int 	Not NULL,
-	PRIMARY KEY (dish_id, dietary_id),
-	CONSTRAINT fk_dish foreign key (dish_id) references dish (dish_id),
-	CONSTRAINT fk_dietary_restrictions foreign key (dietary_id) references dietary_restrictions (dietary_id)
+	dish_id  	 	int 	NOT NULL references dish (dish_id),    
+	dietary_id   	int 	Not NULL references dietary_restrictions (dietary_id),
+	PRIMARY KEY (dish_id, dietary_id)
 );
 
 COMMIT TRANSACTION;

@@ -2,10 +2,7 @@
 <div class="guest-available-box">
   <div class="guest-available-container">
   <div class="guests">
-    <guest-list v-bind:users="availableUsers" />
-   
-
-              
+    <guest-list v-bind:users="allUsers" />
   </div>
   </div>
   </div>
@@ -18,7 +15,9 @@ import PotluckService from "@/services/Potluck.js";
 export default {
   name: "guest",
   data() {
+
     return {
+      allUsers: [],
      availableUsers: {
         username: "",
         firstname: "",
@@ -30,7 +29,7 @@ export default {
     GuestList,
   },
   created() {
- PotluckService
+/*  PotluckService
       .inviteGuest(this.$route.params.id)
       .then((response) => {
        this.availableUsers = response.data;
@@ -39,7 +38,20 @@ export default {
         if (error.response.status == 404) {
           this.$router.push("/not-found");
         }
+      }); */
+
+      PotluckService
+      .getAllUsers()
+      .then((response) => {
+       this.allUsers = response.data;
+      })
+      .catch((error) => {
+        if (error.response.status == 404) {
+          this.$router.push("/not-found");
+        }
       });
+
+      
   },
 };
 </script>

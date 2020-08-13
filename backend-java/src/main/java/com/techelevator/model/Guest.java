@@ -2,22 +2,22 @@ package com.techelevator.model;
 
 public class Guest {
 
-	private int[] guests;
+	private User[] guests;
 
 	private int potluck_id;
 
-	public Guest(int[] guests, int potluck_id) {
+	public Guest(User[] guests, int potluck_id) {
 		super();
 		this.guests = guests;
 		this.potluck_id = potluck_id;
 
 	}
 
-	public int[] getGuests() {
+	public User[] getGuests() {
 		return guests;
 	}
 
-	public void setGuests(int[] guests) {
+	public void setGuests(User[] guests) {
 		this.guests = guests;
 	}
 

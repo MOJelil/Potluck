@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.techelevator.model.CreatePotluckDTO;
 import com.techelevator.model.Guest;
+import com.techelevator.model.Invite;
 import com.techelevator.model.Potluck;
+import com.techelevator.model.User;
 
 @Service
 public class PotluckSqlDAO implements PotluckDAO {
@@ -92,17 +94,38 @@ public class PotluckSqlDAO implements PotluckDAO {
 	public boolean addGuests(Guest newGuest) {
 		boolean guestCreated = false;
 		String sql = "INSERT INTO guests (user_id, potluck_id) VALUES (?,?)";
-		int[] guest = newGuest.getGuests();
+		User[] guest = newGuest.getGuests();
 
 		try {
 			for (int i = 0; i < guest.length; i++) {
-				int count = jdbcTemplate.update(sql, guest[i], newGuest.getPotluck_id());
+				int count = jdbcTemplate.update(sql, guest[i].getId(), newGuest.getPotluck_id());
 				guestCreated = (count == 1);
 			}
 		} catch (DataAccessException e) {
 			System.out.print(e);
 		}
 		return guestCreated;
+	}
+
+	@Override
+	public List<Invite> getGuestDetails() {
+		List<Invite> invite = new ArrayList<Invite>();
+		String sql = "SELECT user_id, firstname, lastname, email FROM users";
+
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+		while (results.next()) {
+			invite.add(mapRowToGuest(results));
+		}
+		return invite;
+	}
+
+	private Invite mapRowToGuest(SqlRowSet rs) {
+		Invite invite = new Invite();
+		invite.setId(rs.getLong("user_id"));
+		invite.setFirstName(rs.getString("firstname"));
+		invite.setLastName(rs.getString("lastname"));
+		invite.setEmail(rs.getString("email"));
+		return invite;
 	}
 
 	private Potluck mapRowToPotluck(SqlRowSet rs) {

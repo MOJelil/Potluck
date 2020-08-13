@@ -35,8 +35,18 @@ export default {
     return axios.get(`/potluck/${potluck_id}/dish`);
   },
 
-  inviteGuest(potluck_id, guest) {
-    return axios.post(`/potluck/${potluck_id}/guest`, guest);
+  
+  inviteGuest(id, guest) {
+   
+    return axios.post(`/potluck/guest`, {
+      potluck_id: id,
+      guests: guest
+    } );
+  },
+
+    getAllUsers() {
+    return axios.get(`/potluck/guest`);
   }
+
 
 }
