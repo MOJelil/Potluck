@@ -130,7 +130,7 @@ INSERT INTO user_diet (user_id, dietary_id) VALUES (11, 3);
 
 
 -- CREATE DEMO POTLUCKS (potluck)
-INSERT INTO potluck (name, location, potluck_date, potluck_time, user_id, description, guests, appetizers, entrees, side_dishes, desserts, alcohol, non_alcohol) VALUES ('Graduation Potluck', 'Ault Park', 'Fri Aug 21 2020 00:00:00', '00:30:00', 6, 'Tech Elevator graduation celebration', 10, 3, 4, 3, 2, 3, 2); 
+INSERT INTO potluck (name, location, potluck_date, potluck_time, user_id, description, guests, appetizers, entrees, side_dishes, desserts, alcohol, non_alcohol) VALUES ('Graduation Potluck', 'Ault Park', 'Fri Aug 21 2020 00:00:00', '12:30:00', 6, 'Tech Elevator graduation celebration', 10, 3, 4, 3, 2, 3, 2); 
 INSERT INTO potluck (name, location, potluck_date, potluck_time, user_id, description, guests, appetizers, entrees, side_dishes, desserts, alcohol, non_alcohol) VALUES ('Labor Day Potluck', 'Rob''s House', 'Fri Aug 28 2020 00:00:00', '00:30:00', 6, 'Annual Labor Day celebration', 5, 1, 3, 3, 2, 3, 2);
 INSERT INTO potluck (name, location, potluck_date, potluck_time, user_id, description, guests, appetizers, entrees, side_dishes, desserts, alcohol, non_alcohol) VALUES ('Mac''s Birthday Potluck', 'Mac''s House', 'Fri Sep 25 2020 00:00:00', '00:30:00', 6, '30th Birthday celebration', 5, 1, 3, 3, 2, 3, 2);
 INSERT INTO potluck (name, location, potluck_date, potluck_time, user_id, description, guests, appetizers, entrees, side_dishes, desserts, alcohol, non_alcohol) VALUES ('Halloween Potluck', 'Mhamed''s House', 'Sat Oct 31 2020 00:00:00', '00:30:00', 6, 'Spooky themed potluck', 5, 1, 3, 3, 2, 3, 2);
@@ -148,19 +148,19 @@ INSERT INTO guests (user_id, potluck_id) VALUES (10, 1);
 INSERT INTO guests (user_id, potluck_id) VALUES (11, 1);
 
 -- CREATE DEMO DISHES (AFTER CREATE POTLUCKS) (dish)
-INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Maple Sausage-Cheese Balls', 'Appetizer', 10, 1, 1);
+INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Maple Sausage-Cheese Balls', 'Appetizer', 10, 1, 5);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Watermelon Salsa', 'Appetizer', 12, 1, 2);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Nashville Hot Chicken Dip', 'Appetizer', 6, 1, 3);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Sloppy Joes', 'Entree', 8, 1, 4);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Veggie Chili', 'Entree', 4, 1, 3);
-INSERT INTO dish (dish_name, category, servings, potluck_id, recipe, user_id) VALUES ('Hamburgers', 'Entree', 6, 1, 'Oscar Myer hamburgers.', 5);
+INSERT INTO dish (dish_name, category, servings, potluck_id, recipe, user_id) VALUES ('Hamburgers', 'Entree', 6, 1, 'Oscar Mayer hamburgers.', 5);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Baked Ziti', 'Entree', 10, 1, 6);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Baked Beans', 'Side Dish', 8, 1, 7);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Mac''s Famous Mac and Cheese', 'Side Dish', 10, 1, 10);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Pasta Salad', 'Side Dish', 6, 1, 8);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Cherry Pie', 'Dessert', 10, 1, 9);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Ice Cream', 'Dessert', 10, 1, 10);
-INSERT INTO dish (dish_name, category, servings, potluck_id, recipe, user_id) VALUES ('Screwdrivers', 'Alcoholic Beverage', 10, 1, 'Voda and orange juice.', 1);
+INSERT INTO dish (dish_name, category, servings, potluck_id, recipe, user_id) VALUES ('Screwdrivers', 'Alcoholic Beverage', 10, 1, 'Voda and orange juice.', 3);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Beer', 'Alcoholic Beverage', 20, 1, 3);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Champagne', 'Alcoholic Beverage', 10, 1, 7);
 INSERT INTO dish (dish_name, category, servings, potluck_id, user_id) VALUES ('Fruit Punch', 'Non-Alcoholic Beverage', 4, 1, 10);
