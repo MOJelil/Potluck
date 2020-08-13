@@ -8,7 +8,11 @@
     <label>Last Name: {{ user.lastName }}</label>
      <label>Email: {{ user.email }}</label>
     </div>
-    <input type="submit" v-on:click="updateGuestList"/>
+    <button
+            type="submit"
+            v-on:click.prevent="updateGuestList()"
+            class="gradient-button gradient-button-color"
+          >Invite!</button>
   </div>
 </template>
 

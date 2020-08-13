@@ -31,7 +31,7 @@ public class Potluck {
 
 	}
 
-	public Potluck(Long potluck_id, String name, String location, LocalDate potluck_date, LocalTime potluck_time,
+	public Potluck(String name, String location, LocalDate potluck_date, LocalTime potluck_time,
 			int user_id, String description, int guests, int appetizers, int entrees, int side_dishes, int desserts,
 			int alcohol, int non_alcohol) {
 		// super();

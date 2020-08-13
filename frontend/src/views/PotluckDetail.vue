@@ -1,5 +1,5 @@
 <template>
-<body class="details">
+<div class="details">
   <div>
     <div class="nav-box">
       <div class="nav-container">
@@ -21,6 +21,21 @@
     </div>
     <div class="page-name-details">
       <header class="head">Potluck Details</header>
+    </div>
+     <div class="button-box">
+      <div class="button-container">
+        <div id="bring">
+          <router-link
+            v-bind:to="{ name: 'bring-dish', params: { id: displayedPotluck.potluck_id } }"
+          >Bring a Dish</router-link>
+        </div>
+
+        <div id="invite">
+          <router-link
+            v-bind:to="{ name: 'invite-guest', params: { id: displayedPotluck.potluck_id } }"
+          >Invite guests</router-link>
+        </div>
+      </div>
     </div>
     <div class="detail-box">
       <div class="detail-container">
@@ -46,7 +61,7 @@
           </div>
         </div>
         <div class="details-container-2">
-          <h3>Guests({{ displayedPotluck.guests }}):</h3>
+          
           <h3>Appetizers({{ displayedPotluck.appetizers }}):</h3>
           <dish-list v-bind:allDishes="dishDetails" selectedCategory="Appetizer" />
           <h3>Entrees({{ displayedPotluck.entrees }}):</h3>
@@ -55,30 +70,15 @@
           <dish-list v-bind:allDishes="dishDetails" selectedCategory="Side Dish" />
           <h3>Desserts({{ displayedPotluck.desserts }}):</h3>
           <dish-list v-bind:allDishes="dishDetails" selectedCategory="Dessert" />
-          <h3>Beverages({{ displayedPotluck.non_alcohol }}):</h3>
+          <h3>Non-Alcohol({{ displayedPotluck.non_alcohol }}):</h3>
           <dish-list v-bind:allDishes="dishDetails" selectedCategory="Non-Alcoholic Beverage" />
-          <h3>Alcohol({{ displayedPotluck.alcohol }}):</h3>
-          <dish-list v-bind:allDishes="dishDetails" selectedCategory="Alcoholic Beverage" />
-        </div>
-      </div>
-    </div>
-    <div class="button-box">
-      <div class="button-container">
-        <div id="bring">
-          <router-link
-            v-bind:to="{ name: 'bring-dish', params: { id: displayedPotluck.potluck_id } }"
-          >Bring a Dish</router-link>
-        </div>
-
-        <div id="invite">
-          <router-link
-            v-bind:to="{ name: 'invite-guest', params: { id: displayedPotluck.potluck_id } }"
-          >Invite guests</router-link>
+           <h3>Alcohol({{ displayedPotluck.alcohol }}):</h3>
+           <dish-list v-bind:allDishes="dishDetails" selectedCategory="Alcoholic Beverage" />
         </div>
       </div>
     </div>
   </div>
-</body>
+</div>
 </template>
 
 <script>
@@ -129,9 +129,8 @@ export default {
 <style>
 .details {
   background: url("../images/wooden-bg.jpg") no-repeat center fixed;
-  background-size: cover;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .detail-container {
@@ -141,9 +140,10 @@ export default {
   background-color: rgba(245, 245, 245, 0.575);
   padding-top: 5px;
   width: 80%;
-  height: 940px;
+  height: auto;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  
 }
 
 .detail-box {
@@ -197,7 +197,7 @@ export default {
   flex-direction: column;
   text-align: left;
   padding-top: 5px;
-  background-color: rgba(105, 105, 105, 0.425);
+  background-color: rgba(245, 245, 245, 0.541);
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   width: 90%;
@@ -205,6 +205,8 @@ export default {
   margin-right: 25px;
   padding-left: 15px;
   padding-right: 15px;
+
+  
 }
 
 .button-container {

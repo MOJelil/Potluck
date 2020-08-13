@@ -1,48 +1,47 @@
 <template>
   <div>
-              <tr>
-            <td>Name of Dish:  </td>
-            <td>Serving Size:  </td>
-            <td>Recipe: </td>
-            <td>Name of contributor: </td>
-            </tr>
-           <div v-for="currentDish in selectedDishes"
-            v-bind:key="currentDish.dish_id">
-            <table>
-                <thead>
-           
-            
-             
-            <tr>
-            <td>{{currentDish.dish_name}} </td>
-            <td>{{currentDish.servings}} </td>
-            <td>{{currentDish.recipe}}</td>
-            <td>{{currentDish.firstname}} {{currentDish.lastname}}</td>
-            </tr>
-                </thead>
-            </table>
+    <table>
+        <thead>
+      <tr>
+        <th>Dish name | Serving Size  |  Recipe |   Name of Food Bringer
+
+</th>
+        
+      </tr>
+        </thead>
+     <tbody>
+        <div v-for="currentDish in selectedDishes" v-bind:key="currentDish.dish_id">
+             <tr>
+          
+          <td>{{currentDish.dish_name}} |</td>
+          <td>{{currentDish.servings}} |</td>
+          <td>{{currentDish.recipe}} |</td>
+          <td>{{currentDish.firstname}} {{currentDish.lastname}}</td>
+
+           </tr>
         </div>
-      </div>
- 
+     </tbody>
+    </table>
+  </div>
 </template>
 
 
 
 <script>
 export default {
-props: {
+  props: {
     allDishes: Array,
     selectedCategory: String,
-    
-},
-computed: {
+  },
+  computed: {
     selectedDishes() {
-        return this.allDishes.filter(dish => dish.category === this.selectedCategory);
-    }
-}
-}
+      return this.allDishes.filter(
+        (dish) => dish.category === this.selectedCategory
+      );
+    },
+  },
+};
 </script>
 
 <style>
-
 </style>

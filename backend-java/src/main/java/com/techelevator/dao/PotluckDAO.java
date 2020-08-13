@@ -20,5 +20,7 @@ public interface PotluckDAO {
 	boolean addGuests(Guest guest);
 
 	List<Invite> getGuestDetails();
+	
+
 
 }

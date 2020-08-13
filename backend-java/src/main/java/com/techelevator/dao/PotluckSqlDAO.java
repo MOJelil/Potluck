@@ -118,9 +118,12 @@ public class PotluckSqlDAO implements PotluckDAO {
 		}
 		return invite;
 	}
+	
+
 
 	private Invite mapRowToGuest(SqlRowSet rs) {
 		Invite invite = new Invite();
+
 		invite.setId(rs.getLong("user_id"));
 		invite.setFirstName(rs.getString("firstname"));
 		invite.setLastName(rs.getString("lastname"));
@@ -146,5 +149,8 @@ public class PotluckSqlDAO implements PotluckDAO {
 		potluck.setNon_alcohol(rs.getInt("non_alcohol"));
 		return potluck;
 	}
+
+
+
 
 }

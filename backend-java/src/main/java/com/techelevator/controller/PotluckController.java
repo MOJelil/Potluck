@@ -74,5 +74,8 @@ public class PotluckController {
 	public List<Invite> getGuestDetails() {
 		return potluckDAO.getGuestDetails();
 	}
-
+//	@RequestMapping(value = "/potluck/{id}/guest", method = RequestMethod.GET)
+//	public List<Invite> getInvitedGuests() {
+//		return potluckDAO.getInvitedGuests();
+//	}
 }

@@ -1,11 +1,33 @@
 <template>
+<div class="details">
 <div class="guest-available-box">
+      <div class="nav-box">
+      <div class="nav-container">
+        <span class="decor"></span>
+        <nav>
+          <ul class="primary">
+            <li>
+              <router-link to="/">My Potlucks</router-link>
+            </li>
+            <li>
+              <router-link to="/potluck">Create Potluck</router-link>
+            </li>
+            <li>
+              <router-link to="/logout">Logout</router-link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   <div class="guest-available-container">
   <div class="guests">
+
     <guest-list v-bind:users="allUsers" />
+    
   </div>
   </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -56,22 +78,24 @@ export default {
 };
 </script>
 <style>
-.potluck-container {
+.details {
+  background: url("../images/wooden-bg.jpg") no-repeat center fixed;
+  background-size: cover;
+  height: 100%;
+  overflow: auto;
+}
+.guest-available-container {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
   background-color: rgba(245, 245, 245, 0.575);
   padding-top: 5px;
-  width: 350px;
-  height: 940px;
+  width: 80%;
+  height: auto;
+  text-align: left;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  
 }
 
-.potluck-box {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-  margin-right: 25px;
-  margin-bottom: 50px;
-}
 </style>
