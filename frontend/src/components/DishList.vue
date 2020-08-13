@@ -1,25 +1,27 @@
 <template>
   <div>
-    <table>
-        <thead>
+   <table>
+       <thead>
       <tr>
-        <th>Dish name | Serving Size  |  Recipe |   Name of Food Bringer
-
-</th>
+        <th>Dish name</th>
+        <th>Serving Size</th>
         
+        <th>Contributor</th>
+        <th>Recipe</th>
       </tr>
-        </thead>
-     <tbody>
-        <div v-for="currentDish in selectedDishes" v-bind:key="currentDish.dish_id">
+       </thead>
+     <tbody
+         v-for="currentDish in selectedDishes" v-bind:key="currentDish.dish_id">
              <tr>
           
-          <td>{{currentDish.dish_name}} |</td>
-          <td>{{currentDish.servings}} |</td>
-          <td>{{currentDish.recipe}} |</td>
+          <td>{{currentDish.dish_name}} </td>
+          <td>{{currentDish.servings}} </td>
+        
           <td>{{currentDish.firstname}} {{currentDish.lastname}}</td>
+            <td>{{currentDish.recipe}} </td>
 
            </tr>
-        </div>
+       
      </tbody>
     </table>
   </div>
