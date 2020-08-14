@@ -1,8 +1,6 @@
 <template>
   <div id="app" class="links">
   
-      <!-- <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> -->
     
     <router-view />
   
@@ -12,10 +10,6 @@
 
 
 <style>
-/* .links {
-  display: flex;
-  justify-content: flex-end;
-} */
 
 a:link {
   
@@ -24,9 +18,10 @@ a:link {
   text-align: center;
   margin-top: 10px;
 }
-a:visited {
+ a:visited {
   color: black;
   text-decoration: none;
+  font-weight: bold;
 }
 a:hover {
   color: black;
@@ -35,11 +30,19 @@ a:hover {
   border-radius: 5px;
   padding: 5px;
   box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.14);
-  
-}
-a:active, a:target, a:focus {
   font-weight: bold;
 }
+
+.target {
+   color: black;
+  text-decoration: none;
+  background:white;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0px 5px 15px 1px rgba(0, 0, 0, 0.14);
+  font-weight: bold;
+}
+
 
 .head {
   font-weight: bold;

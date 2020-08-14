@@ -7,7 +7,7 @@
         <nav>
           <ul class="primary">
             <li>
-              <router-link to="/">My Potlucks</router-link>
+              <router-link class="target" to="/">My Potlucks</router-link>
             </li>
             <li>
               <router-link to="/potluck">Create Potluck</router-link>

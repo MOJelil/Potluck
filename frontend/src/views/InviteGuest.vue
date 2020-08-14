@@ -101,7 +101,7 @@ export default {
   background-color: rgba(245, 245, 245, 0.575);
   justify-content: space-around;
   width: 525px;
-  height: 440px;
+  height: 460px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   margin-bottom: 25px;

@@ -6,10 +6,10 @@
         <nav>
           <ul class="primary">
             <li>
-              <router-link to="/">My Potlucks</router-link>
+              <router-link  to="/">My Potlucks</router-link>
             </li>
             <li>
-              <router-link to="/potluck">Create Potluck</router-link>
+              <router-link class ="target" to="/potluck">Create Potluck</router-link>
             </li>
             <li>
               <router-link to="/logout">Logout</router-link>
@@ -236,9 +236,10 @@ export default {
   background-color: rgba(245, 245, 245, 0.575);
   padding-top: 5px;
   width: 350px;
-  height: 900px;
+  height: 940px;
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  margin-bottom: 50px;
 }
 
 .potluck-box {
@@ -246,6 +247,7 @@ export default {
   justify-content: flex-end;
   margin-top: 20px;
   margin-right: 25px;
+  
 }
 
 .form-field {

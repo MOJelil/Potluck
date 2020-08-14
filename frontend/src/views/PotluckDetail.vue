@@ -1,8 +1,7 @@
 <template>
 
 <div class="details">
-      
-         
+  <a name="top"></a>
   <div>
     <div class="nav-box">
       <div class="nav-container">
@@ -80,10 +79,9 @@
           <dish-list v-bind:allDishes="dishDetails" selectedCategory="Non-Alcoholic Beverage" />
            <h3>Alcohol({{ displayedPotluck.alcohol }}):</h3>
            <dish-list v-bind:allDishes="dishDetails" selectedCategory="Alcoholic Beverage" />
-            <a href="#top">Back to top</a>
-    
+           
         </div>
-      
+      <div class="top-button"><a href="#top">Back To Top</a></div>
       </div>
     </div>
   </div>
@@ -139,6 +137,11 @@ export default {
 };
 </script>
 <style>
+.top-button {
+  font-style: oblique;
+  text-align: center;
+  margin-bottom: 10px;
+}
 .details {
 background: url("../images/wooden-bg.jpg") no-repeat center fixed;
 height: 100%;
